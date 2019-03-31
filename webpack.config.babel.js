@@ -12,9 +12,11 @@ export default env => {
     return {
         entry: './src/index.jsx',
         output: {
-            path: __dirname + '/dist',
+            path: resolve(__dirname, '/dist'),
             publicPath: '/',
             filename: 'bundle.js'
+            // library: 'index', // ???
+            // libraryTarget: 'commonjs2' // causes errors with module is undefined
         },
         resolve: {
             alias: {

@@ -1,11 +1,14 @@
 {
-  "name": "@lundiak/react-add",
+  "name": "@lundiak/react-sum",
   "version": "1.0.3",
-  "description": "ReactJS component to add 2 numbers, as npm package.",
-  "main": "src/components/App.jsx",
+  "description": "ReactJS component to show sum of 2 numbers, as npm package.",
+  "main": "dist/index.js",
   "module": "src/components/App.jsx",
   "esm": "src/components/App.jsx",
   "jsnext:main": "src/components/App.jsx",
+  "files":[
+    "dist"
+  ],
   "scripts": {
     "devBuild": "webpack --mode development --env.dev",
     "prodBuild": "webpack --mode production --env.prod",
@@ -15,13 +18,11 @@
     "test": "jest --verbose --runInBand",
     "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""
   },
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -55,14 +56,23 @@
     "mini-css-extract-plugin": "^0.5.0",
     "prettier": "^1.16.4",
     "prettier-webpack-plugin": "^1.2.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-hot-loader": "^4.7.1",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-config-utils": "^2.3.1",
     "webpack-dev-server": "^3.2.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alundiak/react-sum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alundiak/react-sum/issues"
+  },
+  "homepage": "https://github.com/alundiak/react-sum#readme",
   "author": "Andrii Lundiak",
   "license": "ISC"
 }

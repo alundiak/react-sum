@@ -1,20 +1,20 @@
-# React Add
+# React Sum
 
-ReactJS component to add 2 numbers, as npm package.
+ReactJS component to show sum of 2 numbers, as npm package.
 
 ### Installation
 
-`npm install --save @lundiak/react-add`
+`npm install --save @lundiak/react-sum`
 
 ### How To Use
 
 First import this component where you want to use it
 
-`import ReactAdd from '@lundiak/react-add'`
+`import ReactSum from '@lundiak/react-sum'`
 
 And you ready to use component in `render()``
 
-`<ReactAdd />`
+`<ReactSum />`
 
 ### Props
 
@@ -27,12 +27,12 @@ And you ready to use component in `render()``
 
 ```
 import React, { Component } from 'react';
-import ReactAdd from '@lundiak/react-add';
+import ReactSum from '@lundiak/react-sum';
 
 class App extends Component {
   render() {
     return (
-        <ReactAdd a={2} b="3"/>
+        <ReactSum a={2} b={3}/>
     );
   }
 }
