@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import 'css/app.less'; // TODO rework in JSS< with ability to receive styles from props.
+
 class App extends React.Component {
     state = {
         // TODO
