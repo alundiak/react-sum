@@ -1,6 +1,6 @@
 {
   "name": "@lundiak/apry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ReactJS component as npm package",
   "main": "src/components/App.jsx",
   "scripts": {
