@@ -1,8 +1,11 @@
 {
-  "name": "@lundiak/apry",
+  "name": "@lundiak/react-add",
   "version": "1.0.2",
-  "description": "ReactJS component as npm package",
+  "description": "ReactJS component to add 2 numbers, as npm package.",
   "main": "src/components/App.jsx",
+  "module": "src/components/App.jsx",
+  "esm": "src/components/App.jsx",
+  "jsnext:main": "src/components/App.jsx",
   "scripts": {
     "devBuild": "webpack --mode development --env.dev",
     "prodBuild": "webpack --mode production --env.prod",
@@ -16,6 +19,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",

@@ -30,4 +30,9 @@ App.defaultProps = {
     b: 2
 };
 
+// TODO
+// App.Component1 = Component1;
+// App.Component2 = Component2;
+// App.Component3 = Component3;
+
 export default App;
