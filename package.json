@@ -13,8 +13,9 @@
     "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""
   },
   "dependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -29,7 +30,7 @@
     "css-hot-loader": "^1.4.3",
     "css-loader": "^2.1.0",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-friendly-formatter": "^4.0.1",
