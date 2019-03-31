@@ -1,6 +1,6 @@
 {
   "name": "@lundiak/react-add",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ReactJS component to add 2 numbers, as npm package.",
   "main": "src/components/App.jsx",
   "module": "src/components/App.jsx",
