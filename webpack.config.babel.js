@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { join, resolve } from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -10,14 +10,29 @@ const src = resolve(__dirname, './src');
 export default env => {
     const { ifNotProduction } = getIfUtils(env);
     return {
-        entry: './src/index.jsx',
+        // entry: './src/index.jsx',
+        entry: {
+            index: './src/index.jsx',
+            vendor: ['react', 'react-dom', 'prop-types'],
+            app: './src/components/App.jsx'
+        },
         output: {
-            path: resolve(__dirname, '/dist'),
-            publicPath: '/',
-            filename: 'bundle.js'
+            path: resolve(__dirname, 'dist'),
+            publicPath: join(__dirname, '/dist'),
+            // filename: 'bundle.js',
+            filename: '[name].js',
+            // filename: '[name]_[hash].js',
+            // filename: '[name].[hash:8].js',
+            // sourceMapFilename: '[name].[hash:8].map',
+            // chunkFilename: '[id].[hash:8].js'
             // library: 'index', // ???
             // libraryTarget: 'commonjs2' // causes errors with module is undefined
+
+            // path: resolve('lib'),
+            // filename: 'ReactAdd.js',
+            // libraryTarget: 'commonjs2'
         },
+
         resolve: {
             alias: {
                 css: resolve(src, './css'),
@@ -27,6 +42,25 @@ export default env => {
             modules: ['node_modules', 'bower_components', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
         },
+
+        // externals: {
+        //     // https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
+        //     // Don't bundle react or react-dom
+        //     // AL: but it cause error: "Cannot read property 'Component' of undefined" on HOT load (local run).
+        //     react: {
+        //         commonjs: "react",
+        //         commonjs2: "react",
+        //         amd: "React",
+        //         root: "React"
+        //     },
+        //     "react-dom": {
+        //         commonjs: "react-dom",
+        //         commonjs2: "react-dom",
+        //         amd: "ReactDOM",
+        //         root: "ReactDOM"
+        //     }
+        // },
+
         module: {
             rules: [
                 {
@@ -64,12 +98,17 @@ export default env => {
                 }
             ]
         },
+
         plugins: removeEmpty([
             ifNotProduction(new webpack.HotModuleReplacementPlugin()),
             new MiniCssExtractPlugin({
                 filename: 'css/main.css',
                 chunkFilename: 'css/main.css'
             }),
+            // new MiniCssExtractPlugin({
+            //     filename: 'css/app.css',
+            //     chunkFilename: 'css/app.css'
+            // }),
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
                 filename: 'index.html',
@@ -96,14 +135,16 @@ export default env => {
                 useTabs: false,               // Indent lines with tabs instead of spaces.
                 semi: true,                   // Print semicolons at the ends of statements.
                 encoding: 'utf-8',            // Which encoding scheme to use on files
-                extensions: [ ".less" ]       // Which file extensions to process
-              })
+                extensions: [".less"]       // Which file extensions to process
+            })
         ]),
+
         devServer: {
             host: 'localhost',
             port: 3000,
             hot: true
         },
+
         devtool: 'source-map'
     }
 };

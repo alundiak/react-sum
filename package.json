@@ -2,13 +2,14 @@
   "name": "@lundiak/react-sum",
   "version": "1.0.4",
   "description": "ReactJS component to show sum of 2 numbers, as npm package.",
-  "main": "dist/index.js",
+  "main": "dist/app.js",
   "module": "src/components/App.jsx",
   "esm": "src/components/App.jsx",
   "jsnext:main": "src/components/App.jsx",
   "files": [
     "dist"
   ],
+  "bundledDependencies": false,
   "scripts": {
     "devBuild": "webpack --mode development --env.dev",
     "prodBuild": "webpack --mode production --env.prod",
@@ -16,7 +17,8 @@
     "prodStart": "webpack-dev-server --mode production --env.prod",
     "start": "webpack-dev-server --mode development --env.dev",
     "test": "jest --verbose --runInBand",
-    "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""
+    "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\"",
+    "prepublish": "rm -rf ./dist && npm run devBuild"
   },
   "dependencies": {},
   "peerDependencies": {
