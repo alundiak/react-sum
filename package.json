@@ -7,18 +7,18 @@
   "esm": "src/components/App.jsx",
   "jsnext:main": "src/components/App.jsx",
   "files": [
-    "dist"
+    "dist", "src"
   ],
   "bundledDependencies": false,
   "scripts": {
+    "prebuild": "rm -rf dist",
     "devBuild": "webpack --mode development --env.dev",
     "prodBuild": "webpack --mode production --env.prod",
     "build": "npm run devBuild",
     "prodStart": "webpack-dev-server --mode production --env.prod",
     "start": "webpack-dev-server --mode development --env.dev",
     "test": "jest --verbose --runInBand",
-    "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\"",
-    "prepublish": "rm -rf ./dist && npm run devBuild"
+    "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""
   },
   "dependencies": {},
   "peerDependencies": {

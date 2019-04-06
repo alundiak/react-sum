@@ -10,28 +10,38 @@ const src = resolve(__dirname, './src');
 export default env => {
     const { ifNotProduction } = getIfUtils(env);
     return {
-        // entry: './src/index.jsx',
-        entry: {
-            index: './src/index.jsx',
-            vendor: ['react', 'react-dom', 'prop-types'],
-            app: './src/components/App.jsx'
-        },
+        entry: './src/index.jsx',
+        // entry: {
+        //     appCss: './src/css/app.less',
+        //     mainCss: './src/css/main.less',
+        //     blabla: ['./src/index.jsx'],
+        //     // vendor: ['react', 'react-dom', 'prop-types'],
+        //     // app: ['./src/components/App.jsx']
+        // },
+
         output: {
             path: resolve(__dirname, 'dist'),
             publicPath: join(__dirname, '/dist'),
-            // filename: 'bundle.js',
-            filename: '[name].js',
+            filename: 'bundle.js',
+            // filename: '[name].js',
             // filename: '[name]_[hash].js',
             // filename: '[name].[hash:8].js',
             // sourceMapFilename: '[name].[hash:8].map',
             // chunkFilename: '[id].[hash:8].js'
-            // library: 'index', // ???
+            // library: 'ReactSum',
             // libraryTarget: 'commonjs2' // causes errors with module is undefined
+            // libraryTarget: 'umd'
 
             // path: resolve('lib'),
-            // filename: 'ReactAdd.js',
+            // filename: 'ReactSum.js',
             // libraryTarget: 'commonjs2'
         },
+
+        // optimization: {
+        //     splitChunks: {
+        //         chunks: 'all',
+        //     },
+        // },
 
         resolve: {
             alias: {
@@ -46,7 +56,7 @@ export default env => {
         // externals: {
         //     // https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
         //     // Don't bundle react or react-dom
-        //     // AL: but it cause error: "Cannot read property 'Component' of undefined" on HOT load (local run).
+        //     // AL: but it causes error: "Cannot read property 'Component' of undefined" on HOT load (local run).
         //     react: {
         //         commonjs: "react",
         //         commonjs2: "react",
@@ -76,10 +86,16 @@ export default env => {
                         loader: 'babel-loader'
                     }
                 },
+                // {
+                //     test: /\.css$/,
+                //     use: removeEmpty([
+                //         'css-loader',
+                //     ])
+                // },
                 {
                     test: /\.less$/,
                     use: removeEmpty([
-                        ifNotProduction('css-hot-loader'),
+                        // ifNotProduction('css-hot-loader'),
                         MiniCssExtractPlugin.loader,
                         'css-loader',
                         {
@@ -100,11 +116,17 @@ export default env => {
         },
 
         plugins: removeEmpty([
-            ifNotProduction(new webpack.HotModuleReplacementPlugin()),
+            // ifNotProduction(new webpack.HotModuleReplacementPlugin()),
             new MiniCssExtractPlugin({
-                filename: 'css/main.css',
-                chunkFilename: 'css/main.css'
+                filename: "[name].css",
+                chunkFilename: "[id].css"
             }),
+            // no matter if it's one file or 2 files, content of result file will have ALL files
+            // This is odd duplication issues.
+            // new MiniCssExtractPlugin({
+            //     filename: 'css/main.css',
+            //     chunkFilename: 'css/main.css'
+            // }),
             // new MiniCssExtractPlugin({
             //     filename: 'css/app.css',
             //     chunkFilename: 'css/app.css'
@@ -141,8 +163,8 @@ export default env => {
 
         devServer: {
             host: 'localhost',
-            port: 3000,
-            hot: true
+            port: 3000
+            // hot: true
         },
 
         devtool: 'source-map'

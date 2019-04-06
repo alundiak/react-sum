@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import 'css/app.less'; // TODO rework in JSS< with ability to receive styles from props.
+// TODO rework in JSS with ability to receive styles from props.
+import 'css/app.less';
+// import 'css/test.css';
 
 class App extends React.Component {
     state = {
@@ -14,7 +16,7 @@ class App extends React.Component {
 
         return (
             <div>
-                <h1>{result}</h1>
+                <h1 className="test">{result}</h1>
             </div>
         );
     }
