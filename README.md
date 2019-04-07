@@ -39,3 +39,10 @@ class App extends Component {
 
 export default App;
 ```
+
+### Resources
+
+About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue.
+- https://github.com/babel/babel/issues/7879
+- https://github.com/babel/babel/issues/8577
+- https://github.com/babel/babel/issues/8711

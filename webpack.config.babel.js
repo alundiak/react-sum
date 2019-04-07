@@ -21,7 +21,7 @@ export default env => {
 
         output: {
             path: resolve(__dirname, 'dist'),
-            publicPath: join(__dirname, '/dist'),
+            publicPath: env.dev ? '/' : './',
             filename: 'bundle.js',
             // filename: '[name].js',
             // filename: '[name]_[hash].js',
@@ -95,7 +95,7 @@ export default env => {
                 {
                     test: /\.less$/,
                     use: removeEmpty([
-                        // ifNotProduction('css-hot-loader'),
+                        ifNotProduction('css-hot-loader'),
                         MiniCssExtractPlugin.loader,
                         'css-loader',
                         {
@@ -116,7 +116,7 @@ export default env => {
         },
 
         plugins: removeEmpty([
-            // ifNotProduction(new webpack.HotModuleReplacementPlugin()),
+            ifNotProduction(new webpack.HotModuleReplacementPlugin()),
             new MiniCssExtractPlugin({
                 filename: "[name].css",
                 chunkFilename: "[id].css"
@@ -163,8 +163,8 @@ export default env => {
 
         devServer: {
             host: 'localhost',
-            port: 3000
-            // hot: true
+            port: 3000,
+            hot: true
         },
 
         devtool: 'source-map'
