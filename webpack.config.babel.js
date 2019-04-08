@@ -28,13 +28,9 @@ export default env => {
             // filename: '[name].[hash:8].js',
             // sourceMapFilename: '[name].[hash:8].map',
             // chunkFilename: '[id].[hash:8].js'
-            // library: 'ReactSum',
+            library: 'ReactSum',
             // libraryTarget: 'commonjs2' // causes errors with module is undefined
-            // libraryTarget: 'umd'
-
-            // path: resolve('lib'),
-            // filename: 'ReactSum.js',
-            // libraryTarget: 'commonjs2'
+            libraryTarget: 'umd'
         },
 
         // optimization: {
@@ -77,7 +73,7 @@ export default env => {
                     enforce: 'pre',
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
-                    loader: 'eslint-loader',
+                    loader: 'eslint-loader', // looks like eslint need "pre-made" behavior.
                 },
                 {
                     test: /\.(js|jsx)$/,
@@ -85,13 +81,15 @@ export default env => {
                     use: {
                         loader: 'babel-loader'
                     }
+                    // not sure, but
+                    // use: ['babel-loader', 'eslint-loader']
                 },
-                // {
-                //     test: /\.css$/,
-                //     use: removeEmpty([
-                //         'css-loader',
-                //     ])
-                // },
+                {
+                    test: /\.css$/,
+                    use: removeEmpty([
+                        'css-loader',
+                    ])
+                },
                 {
                     test: /\.less$/,
                     use: removeEmpty([
