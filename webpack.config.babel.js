@@ -38,6 +38,7 @@ export default env => {
             libraryTarget: 'umd'
         },
 
+        // Since Webpack v4.
         // optimization: {
         //     splitChunks: {
         //         chunks: 'all',
@@ -118,12 +119,10 @@ export default env => {
 
         plugins: removeEmpty([
             ifNotProduction(new webpack.HotModuleReplacementPlugin()),
-            new MiniCssExtractPlugin({
-                filename: "[name].css",
-                chunkFilename: "[id].css"
-            }),
-            // no matter if it's one file or 2 files, content of result file will have ALL files
-            // This is odd duplication issues.
+
+            // Approach #1
+            // When 2 objects written as below, it will cause duplication issues
+            // - file names different, but content will be the same.
             // new MiniCssExtractPlugin({
             //     filename: 'css/main.css',
             //     chunkFilename: 'css/main.css'
@@ -132,6 +131,21 @@ export default env => {
             //     filename: 'css/app.css',
             //     chunkFilename: 'css/app.css'
             // }),
+
+            // Approach #2
+            // No matter if it's one file or 2 files, content of result file will have ALL files
+            // new MiniCssExtractPlugin({
+            //     filename: "[name].css",
+            //     chunkFilename: "[id].css"
+            // }),
+
+            // Approach #3
+            // Giving file name, it will contain all less file contents (including those imported from JSX files)
+            new MiniCssExtractPlugin({
+                filename: "reactSum.css",
+                // chunkFilename: "myId.css"
+            }),
+
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
                 filename: 'index.html',
