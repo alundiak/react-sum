@@ -86,9 +86,7 @@ export default env => {
                 },
                 {
                     test: /\.css$/,
-                    use: removeEmpty([
-                        'css-loader',
-                    ])
+                    loader: 'css-loader'
                 },
                 {
                     test: /\.less$/,
