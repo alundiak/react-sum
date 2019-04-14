@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../css/react-count.less';
+
 const Count = (props) => {
     const { list } = props;
     return (

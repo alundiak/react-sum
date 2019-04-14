@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../css/react-sum.less';
+
 class Sum extends React.Component {
     state = {
         // TODO - create input fields and take values for interactive Sum()

@@ -12,11 +12,16 @@ export default env => {
     return {
         entry: './src/index.jsx',
         // entry: {
+        //     indexJsx: ['./src/index.jsx'],
+        //     appJsx: ['./src/components/App.jsx'],
+        //     sumJsx: ['./src/components/Sum.jsx'],
+        //     countJsx: ['./src/components/Count.jsx'],
         //     appCss: './src/css/app.less',
         //     mainCss: './src/css/main.less',
-        //     blabla: ['./src/index.jsx'],
+        //     reactSumCss: './src/css/react-sum.less',
+        //     reactCountCss: './src/css/react-count.less',
+        //     testCss: './src/css/test.css',
         //     // vendor: ['react', 'react-dom', 'prop-types'],
-        //     // app: ['./src/components/App.jsx']
         // },
 
         output: {
