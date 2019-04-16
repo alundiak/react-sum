@@ -11,6 +11,7 @@ export default env => {
     const { ifNotProduction } = getIfUtils(env);
     return {
         entry: './src/index.jsx',
+
         // entry: {
         //     indexJsx: ['./src/index.jsx'],
         //     appJsx: ['./src/components/App.jsx'],
@@ -21,6 +22,23 @@ export default env => {
         //     reactSumCss: './src/css/react-sum.less',
         //     reactCountCss: './src/css/react-count.less',
         //     testCss: './src/css/test.css',
+        //     // vendor: ['react', 'react-dom', 'prop-types'],
+        // },
+
+        // entry: {
+        //     main: [
+        //         './src/index.jsx',
+        //         './src/css/main.less'
+        //     ],
+        //     app: [
+        //         './src/components/App.jsx',
+        //         './src/components/Sum.jsx',
+        //         './src/components/Count.jsx',
+        //         './src/css/app.less',
+        //         './src/css/react-sum.less',
+        //         './src/css/react-count.less',
+        //         './src/css/test.css'
+        //     ]
         //     // vendor: ['react', 'react-dom', 'prop-types'],
         // },
 
@@ -133,18 +151,31 @@ export default env => {
             // }),
 
             // Approach #2
-            // No matter if it's one file or 2 files, content of result file will have ALL files
-            // new MiniCssExtractPlugin({
-            //     filename: "[name].css",
-            //     chunkFilename: "[id].css"
-            // }),
-
-            // Approach #3
             // Giving file name, it will contain all less file contents (including those imported from JSX files)
             new MiniCssExtractPlugin({
                 filename: "reactSum.css",
                 // chunkFilename: "myId.css"
             }),
+            // But it causes an error when multiple entries used:
+            // Multiple chunks emit assets to the same filename reactSum.css
+
+            // Approach #3
+            // No matter if it's one file or 2 files, content of result file will have ALL files
+            // new MiniCssExtractPlugin({
+            //     // filename: "[name].css"
+            // }),
+
+            // new MiniCssExtractPlugin({
+            //     // same result
+            //     // filename: "[name].css"
+            //     // filename: "[id].css"
+            //     // chunkFilename: "[id].css"
+            //     // same result
+
+            //     // filename: "[name]_[hash].css" // appCss_5398cd6b88d129401089.css
+            //     // filename: "[name]_[id].css" // appCss_appCss
+
+            // }),
 
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
@@ -182,6 +213,7 @@ export default env => {
             hot: true
         },
 
-        devtool: 'source-map'
+        // devtool: 'source-map'
+        devtool: false
     }
 };
