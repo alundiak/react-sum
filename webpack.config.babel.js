@@ -213,7 +213,8 @@ export default env => {
             hot: true
         },
 
-        // devtool: 'source-map'
-        devtool: false
+        devtool: 'source-map'
+        // devtool: ifNotProduction('source-map', undefined) // works. bundle.js is different.
+        // devtool: false
     }
 };
