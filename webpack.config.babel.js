@@ -10,53 +10,53 @@ const src = resolve(__dirname, './src');
 export default env => {
     const { ifNotProduction } = getIfUtils(env);
     return {
-        entry: './src/index.jsx',
+        // OK for single entry approach
+        // entry: './src/index.jsx',
 
-        // entry: {
-        //     indexJsx: ['./src/index.jsx'],
-        //     appJsx: ['./src/components/App.jsx'],
-        //     sumJsx: ['./src/components/Sum.jsx'],
-        //     countJsx: ['./src/components/Count.jsx'],
-        //     appCss: './src/css/app.less',
-        //     mainCss: './src/css/main.less',
-        //     reactSumCss: './src/css/react-sum.less',
-        //     reactCountCss: './src/css/react-count.less',
-        //     testCss: './src/css/test.css',
-        //     // vendor: ['react', 'react-dom', 'prop-types'],
+        // OK for multiple entries approach
+        entry: {
+            main: [
+                './src/index.jsx'
+                // './src/css/main.less'
+            ],
+            Sum: ['./src/components/Sum.jsx'], // should I include react-sum.less/css?
+            Count: ['./src/components/Count.jsx'], // looks lik not needed css/less
+            CountWithAlias: ['./src/components/CountWithAlias.jsx'],
+            app: [
+                './src/components/App.jsx'
+                // './src/components/Sum.jsx',
+                // './src/components/Count.jsx',
+                // './src/components/CountWithAlias.jsx',
+                // './src/css/app.less',
+                // './src/css/react-sum.less',
+                // './src/css/react-count.less',
+                // './src/css/test.css'
+            ]
+        },
+
+        // OK for single entry approach
+        // output: {
+        //     path: resolve(__dirname, 'dist'),
+        //     publicPath: env.dev ? '/' : './',
+        //     filename: 'bundle.js',
+        //     library: 'ReactSum',
+        //     libraryTarget: 'umd'
         // },
 
-        // entry: {
-        //     main: [
-        //         './src/index.jsx',
-        //         './src/css/main.less'
-        //     ],
-        //     app: [
-        //         './src/components/App.jsx',
-        //         './src/components/Sum.jsx',
-        //         './src/components/Count.jsx',
-        //         './src/css/app.less',
-        //         './src/css/react-sum.less',
-        //         './src/css/react-count.less',
-        //         './src/css/test.css'
-        //     ]
-        //     // vendor: ['react', 'react-dom', 'prop-types'],
-        // },
-
+        // OK for multiple entries approach
         output: {
             path: resolve(__dirname, 'dist'),
             publicPath: env.dev ? '/' : './',
-            filename: 'bundle.js',
-            // filename: '[name].js',
+            filename: '[name].js',
             // filename: '[name]_[hash].js',
             // filename: '[name].[hash:8].js',
             // sourceMapFilename: '[name].[hash:8].map',
-            // chunkFilename: '[id].[hash:8].js'
-            library: 'ReactSum',
-            // libraryTarget: 'commonjs2' // causes errors with module is undefined
+            // chunkFilename: '[id].[hash:8].js' // ?
+            library: ['ReactSum', '[name]'],
             libraryTarget: 'umd'
         },
 
-        // Since Webpack v4.
+        // Since Webpack v4. Works for both - single and multiple entires approaches.
         // optimization: {
         //     splitChunks: {
         //         chunks: 'all',
@@ -69,7 +69,7 @@ export default env => {
                 components: resolve(src, './components'),
                 img: resolve(src, './images'),
             },
-            modules: ['node_modules', 'bower_components', 'src'],
+            modules: ['node_modules', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
         },
 
@@ -152,30 +152,25 @@ export default env => {
 
             // Approach #2
             // Giving file name, it will contain all less file contents (including those imported from JSX files)
-            new MiniCssExtractPlugin({
-                filename: "reactSum.css",
-                // chunkFilename: "myId.css"
-            }),
-            // But it causes an error when multiple entries used:
-            // Multiple chunks emit assets to the same filename reactSum.css
+            // new MiniCssExtractPlugin({
+            //     filename: "reactSum.css",
+            //     // chunkFilename: "myId.css" // ???
+            // }),
+            // But it causes an error when multiple entries approach used:
+            // "Multiple chunks emit assets to the same filename reactSum.css"
 
             // Approach #3
             // No matter if it's one file or 2 files, content of result file will have ALL files
-            // new MiniCssExtractPlugin({
-            //     // filename: "[name].css"
-            // }),
-
-            // new MiniCssExtractPlugin({
-            //     // same result
-            //     // filename: "[name].css"
-            //     // filename: "[id].css"
-            //     // chunkFilename: "[id].css"
-            //     // same result
-
-            //     // filename: "[name]_[hash].css" // appCss_5398cd6b88d129401089.css
-            //     // filename: "[name]_[id].css" // appCss_appCss
-
-            // }),
+            new MiniCssExtractPlugin({
+                filename: "[name].css"
+                // same result:
+                // filename: "[name].css"
+                // filename: "[id].css"
+                // chunkFilename: "[id].css"
+                // same result:
+                // filename: "[name]_[hash].css" // appCss_5398cd6b88d129401089.css
+                // filename: "[name]_[id].css" // appCss_appCss
+            }),
 
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
@@ -210,7 +205,7 @@ export default env => {
         devServer: {
             host: 'localhost',
             port: 3000,
-            hot: true
+            // hot: true // Good for development, but when npm publish, code is built with lot of HMR sugar
         },
 
         devtool: 'source-map'

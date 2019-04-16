@@ -19,6 +19,6 @@ const Main = () => (
 
 ReactDOM.render(<Main />, document.getElementById('app'));
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
