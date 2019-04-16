@@ -21,7 +21,7 @@ export default env => {
             ],
             Sum: ['./src/components/Sum.jsx'], // should I include react-sum.less/css?
             Count: ['./src/components/Count.jsx'], // looks lik not needed css/less
-            CountWithAlias: ['./src/components/CountWithAlias.jsx'],
+            CountWithAlias: ['./src/components/CountWithAlias.jsx', './src/css/react-count.less'],
             app: [
                 './src/components/App.jsx'
                 // './src/components/Sum.jsx',
@@ -136,7 +136,7 @@ export default env => {
         },
 
         plugins: removeEmpty([
-            ifNotProduction(new webpack.HotModuleReplacementPlugin()),
+            // ifNotProduction(new webpack.HotModuleReplacementPlugin()),
 
             // Approach #1
             // When 2 objects written as below, it will cause duplication issues
