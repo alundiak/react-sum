@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ReactSum Example</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="./dist/Sum.css" rel="stylesheet">
+    <link href="./dist/Count.css" rel="stylesheet">
+    <script src="./dist/Sum.js"></script>
+    <script src="./dist/Count.js"></script>
+    <script src="./dist/CountWithAlias.js"></script>
+</head>
+
+<body style="padding: 20px;">
+    <div class="app" id="app"></div>
+    <div class="app" id="myApp3"></div>
+    <div class="app" id="myApp4"></div>
+    <div class="app" id="myApp5"></div>
+
+    <script>
+        // window.ReactSum is available for ReactDOM.render(), with no self-rendering into container app
+        console.log(React, ReactDOM, ReactSum);
+    </script>
+
+    <!-- ReactSum Simple JavaScript approach -->
+    <script>
+        const { Sum, Count } = ReactSum;
+        const myApp3Container = document.querySelector('#myApp3');
+        const myApp4Container = document.querySelector('#myApp4');
+        ReactDOM.render(React.createElement(Sum.default), myApp3Container);
+        ReactDOM.render(React.createElement(Count.default), myApp4Container);
+    </script>
+
+    <!-- ReactSum Babel/JSX approach -->
+    <script type="text/babel">
+        // const { Count } = ReactSum;
+        // console.log(ReactSum.Count);
+
+        const myApp5Container = document.querySelector('#myApp5');
+
+        // ReactDOM.render(<ReactSum.Sum.default />, myApp5Container);
+        // or
+        class LocalSum extends ReactSum.Sum.default {}
+        ReactDOM.render(<LocalSum />, myApp5Container);
+    </script>
+</body>
+
+</html>

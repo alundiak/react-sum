@@ -63,11 +63,11 @@ export default env => {
         // ],
 
         // Since Webpack v4. Works for both - single and multiple entires approaches.
-        optimization: {
-            splitChunks: {
-                chunks: 'all',
-            },
-        },
+        // optimization: {
+        //     splitChunks: {
+        //         chunks: 'all',
+        //     },
+        // },
 
         resolve: {
             alias: {
@@ -83,21 +83,22 @@ export default env => {
         // Don't bundle react or react-dom
         // AL: looks like because it causes error:
         // "Cannot read property 'Component' of undefined" on HOT load (local run).
-        externals: {
-            // react: 'react', // simple version
-            // react: {
-            //     commonjs: 'react',
-            //     commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
-            //     amd: 'react',
-            //     root: 'React' // indicates global variable
-            // }
-            // 'react-dom': {
-            //     commonjs: 'react-dom',
-            //     commonjs2: 'react-dom',
-            //     amd: 'react-dom',
-            //     root: 'ReactDOM' // indicates global variable
-            // }
-        },
+        // Final version of es5-code contains smth like root() which cause using "default" not working.
+        // externals: {
+        //     // react: 'react', // simple version
+        //     // react: {
+        //     //     commonjs: 'react',
+        //     //     commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
+        //     //     amd: 'react',
+        //     //     root: 'React' // indicates global variable
+        //     // }
+        //     // 'react-dom': {
+        //     //     commonjs: 'react-dom',
+        //     //     commonjs2: 'react-dom',
+        //     //     amd: 'react-dom',
+        //     //     root: 'ReactDOM' // indicates global variable
+        //     // }
+        // },
 
         module: {
             rules: [
