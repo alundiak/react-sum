@@ -63,11 +63,11 @@ export default env => {
         // ],
 
         // Since Webpack v4. Works for both - single and multiple entires approaches.
-        // optimization: {
-        //     splitChunks: {
-        //         chunks: 'all',
-        //     },
-        // },
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+            },
+        },
 
         resolve: {
             alias: {
