@@ -52,16 +52,22 @@ export default env => {
             // filename: '[name].[hash:8].js',
             // sourceMapFilename: '[name].[hash:8].map',
             // chunkFilename: '[id].[hash:8].js' // ?
-            library: ['ReactSum', '[name]'],
+            library: ['ReactSum', '[name]'], // ideal case is to have <MyReactCollection.MyComponent />
             libraryTarget: 'umd'
         },
 
+        // Multiple Outputs
+
+        // output: [
+
+        // ],
+
         // Since Webpack v4. Works for both - single and multiple entires approaches.
-        // optimization: {
-        //     splitChunks: {
-        //         chunks: 'all',
-        //     },
-        // },
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+            },
+        },
 
         resolve: {
             alias: {
@@ -73,23 +79,24 @@ export default env => {
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
         },
 
-        // externals: {
-        //     // https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
-        //     // Don't bundle react or react-dom
-        //     // AL: but it causes error: "Cannot read property 'Component' of undefined" on HOT load (local run).
-        //     react: {
-        //         commonjs: "react",
-        //         commonjs2: "react",
-        //         amd: "React",
-        //         root: "React"
-        //     },
-        //     "react-dom": {
-        //         commonjs: "react-dom",
-        //         commonjs2: "react-dom",
-        //         amd: "ReactDOM",
-        //         root: "ReactDOM"
-        //     }
-        // },
+        // https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
+        // Don't bundle react or react-dom
+        // AL: but it causes error: "Cannot read property 'Component' of undefined" on HOT load (local run).
+        externals: {
+            // react: 'react', // simple version
+            react: {
+                commonjs: 'react',
+                commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
+                amd: 'react',
+                root: 'React' // indicates global variable
+            }
+            // 'react-dom': {
+            //     commonjs: 'react-dom',
+            //     commonjs2: 'react-dom',
+            //     amd: 'react-dom',
+            //     root: 'ReactDOM' // indicates global variable
+            // }
+        },
 
         module: {
             rules: [

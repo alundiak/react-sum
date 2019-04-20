@@ -6,7 +6,7 @@
   "module": "src/components/App.jsx",
   "esm": "src/components/App.jsx",
   "jsnext:main": "src/components/App.jsx",
-  "browser": "dist/ReactSum.js",
+  "browser": "dist/bundle.js",
   "files": [
     "dist",
     "src"

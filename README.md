@@ -1,6 +1,6 @@
 # React Sum
 
-ReactJS component to show sum of 2 numbers, as npm package.
+Experimental ReactJS component to show sum of 2 numbers, as npm package.
 
 ### Installation
 
@@ -58,3 +58,7 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - https://github.com/babel/babel/issues/7879
 - https://github.com/babel/babel/issues/8577
 - https://github.com/babel/babel/issues/8711
+
+
+Other similar named packages
+- https://github.com/cezary/react-math
