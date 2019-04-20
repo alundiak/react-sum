@@ -60,5 +60,8 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - https://github.com/babel/babel/issues/8711
 
 
+Webpack and related
+- https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
+
 Other similar named packages
 - https://github.com/cezary/react-math

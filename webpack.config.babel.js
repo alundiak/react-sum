@@ -81,15 +81,16 @@ export default env => {
 
         // https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
         // Don't bundle react or react-dom
-        // AL: but it causes error: "Cannot read property 'Component' of undefined" on HOT load (local run).
+        // AL: looks like because it causes error:
+        // "Cannot read property 'Component' of undefined" on HOT load (local run).
         externals: {
             // react: 'react', // simple version
-            react: {
-                commonjs: 'react',
-                commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
-                amd: 'react',
-                root: 'React' // indicates global variable
-            }
+            // react: {
+            //     commonjs: 'react',
+            //     commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
+            //     amd: 'react',
+            //     root: 'React' // indicates global variable
+            // }
             // 'react-dom': {
             //     commonjs: 'react-dom',
             //     commonjs2: 'react-dom',
