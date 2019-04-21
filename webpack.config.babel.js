@@ -19,19 +19,16 @@ export default env => {
                 './src/index.jsx'
                 // './src/css/main.less'
             ],
-            Sum: ['./src/components/Sum.jsx'], // should I include react-sum.less/css?
-            Count: ['./src/components/Count.jsx'], // looks lik not needed css/less
-            CountWithAlias: ['./src/components/CountWithAlias.jsx', './src/css/react-count.less'],
             app: [
                 './src/components/App.jsx'
                 // './src/components/Sum.jsx',
-                // './src/components/Count.jsx',
-                // './src/components/CountWithAlias.jsx',
+                // './src/components/SumWithCssAlias.jsx',
                 // './src/css/app.less',
                 // './src/css/react-sum.less',
-                // './src/css/react-count.less',
-                // './src/css/test.css'
-            ]
+                // './src/css/with-alias.css'
+            ],
+            Sum: ['./src/components/Sum.jsx'], // should I include react-sum.less/css?
+            SumWithCssAlias: ['./src/components/SumWithCssAlias.jsx'/* , './src/css/with-alias.css' */]
         },
 
         // OK for single entry approach
@@ -63,17 +60,20 @@ export default env => {
         // ],
 
         // Since Webpack v4. Works for both - single and multiple entires approaches.
+        // But matters for browser usage example, when
+        // - devBuild (then expects "default") or
+        // - prodBuild (then works OK)
         optimization: {
             splitChunks: {
-                chunks: 'all',
-            },
+                chunks: 'all'
+            }
         },
 
         resolve: {
             alias: {
                 css: resolve(src, './css'),
                 components: resolve(src, './components'),
-                img: resolve(src, './images'),
+                img: resolve(src, './images')
             },
             modules: ['node_modules', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
@@ -106,7 +106,7 @@ export default env => {
                     enforce: 'pre',
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
-                    loader: 'eslint-loader', // looks like eslint need "pre-made" behavior.
+                    loader: 'eslint-loader' // looks like eslint need "pre-made" behavior.
                 },
                 {
                     test: /\.(js|jsx)$/,
@@ -117,9 +117,18 @@ export default env => {
                     // not sure, but
                     // use: ['babel-loader', 'eslint-loader']
                 },
+                // Simple config setup doesn't work
+                // {
+                //     test: /\.css$/,
+                //     loader: 'css-loader'
+                // },
                 {
                     test: /\.css$/,
-                    loader: 'css-loader'
+                    use: removeEmpty([
+                        ifNotProduction('css-hot-loader'),
+                        MiniCssExtractPlugin.loader,
+                        'css-loader'
+                    ])
                 },
                 {
                     test: /\.less$/,
@@ -172,13 +181,10 @@ export default env => {
             // No matter if it's one file or 2 files, content of result file will have ALL files
             new MiniCssExtractPlugin({
                 filename: "[name].css"
-                // same result:
-                // filename: "[name].css"
-                // filename: "[id].css"
-                // chunkFilename: "[id].css"
-                // same result:
-                // filename: "[name]_[hash].css" // appCss_5398cd6b88d129401089.css
-                // filename: "[name]_[id].css" // appCss_appCss
+                // filename: "[id].css" // => app.css
+                // chunkFilename: "[id].css" // => app.css
+                // filename: "[name]_[id].css" // => app_app.css
+                // filename: "[name]_[hash].css" // => app_5398cd6b88d129401089.css
             }),
 
             new HtmlWebpackPlugin({
