@@ -72,9 +72,15 @@ Webpack and related
 - https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
 
 Other similar named packages
-- https://github.com/cezary/react-math
+- https://github.com/cezary/react-math + https://github.com/ForbesLindesay/ascii-math
+
+Notes
+- HTML [math](https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math) tag [isn't supported](https://caniuse.com/#search=mathml) by Chrome, and works only in Firefox and Safari.
+- http://eyeasme.com/Joe/MathML/MathML_browser_test.html
 
 
 ## TODO
 
 - JSS - https://cssinjs.org/
+- Styled Component?
+- ReactCSS - https://github.com/casesandberg/reactcss

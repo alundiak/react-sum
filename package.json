@@ -22,7 +22,9 @@
     "test": "jest --verbose --runInBand",
     "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "ascii-math": "^2.0.0"
+  },
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
