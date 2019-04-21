@@ -84,3 +84,4 @@ Notes
 - JSS - https://cssinjs.org/
 - Styled Component?
 - ReactCSS - https://github.com/casesandberg/reactcss
+- How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.

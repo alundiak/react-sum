@@ -8,7 +8,8 @@ import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 const src = resolve(__dirname, './src');
 
 export default env => {
-    const { ifNotProduction } = getIfUtils(env);
+    console.log(env);
+    const { ifProd, ifDev } = getIfUtils(env);
     return {
         // OK for single entry approach
         // entry: './src/index.jsx',
@@ -47,10 +48,13 @@ export default env => {
             filename: '[name].js',
             // filename: '[name]_[hash].js',
             // filename: '[name].[hash:8].js',
+            // filename: '[name].[contenthash].js', // => Cannot use [chunkhash] or [contenthash] for chunk in '[name].[contenthash].js' (use [hash] instead)
+            // filename: '[name].[contenthash:8].js',
             // sourceMapFilename: '[name].[hash:8].map',
             // chunkFilename: '[id].[hash:8].js' // ?
             library: ['ReactSum', '[name]'], // ideal case is to have <MyReactCollection.MyComponent />
-            libraryTarget: 'umd'
+            libraryTarget: 'umd',
+            umdNamedDefine: true // cause "define("Sum", [], factory);"
         },
 
         // Multiple Outputs
@@ -60,12 +64,14 @@ export default env => {
         // ],
 
         // Since Webpack v4. Works for both - single and multiple entires approaches.
-        // But matters for browser usage example, when
+        // But matters for browser usage example, when error "Cannot read property 'default' of undefined" occurs:
         // - devBuild (then expects "default") or
         // - prodBuild (then works OK)
         optimization: {
             splitChunks: {
                 chunks: 'all'
+                // using cacheGroups:{} we can split into dedicated files
+                // https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
             }
         },
 
@@ -125,7 +131,7 @@ export default env => {
                 {
                     test: /\.css$/,
                     use: removeEmpty([
-                        ifNotProduction('css-hot-loader'),
+                        ifDev('css-hot-loader'),
                         MiniCssExtractPlugin.loader,
                         'css-loader'
                     ])
@@ -133,7 +139,7 @@ export default env => {
                 {
                     test: /\.less$/,
                     use: removeEmpty([
-                        ifNotProduction('css-hot-loader'),
+                        ifDev('css-hot-loader'),
                         MiniCssExtractPlugin.loader,
                         'css-loader',
                         {
@@ -154,7 +160,12 @@ export default env => {
         },
 
         plugins: removeEmpty([
+            // This also causes "Cannot read property 'default' of undefined"
             // ifNotProduction(new webpack.HotModuleReplacementPlugin()),
+            // This (ifDev) usage doesn't cause that error. Because mode is NOT "production" but is "prod" :) yeah....
+            ifDev(new webpack.HotModuleReplacementPlugin()),
+
+            // new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
 
             // Approach #1
             // When 2 objects written as below, it will cause duplication issues
@@ -207,6 +218,7 @@ export default env => {
                 },
                 hash: true
             }),
+
             new PrettierPlugin({
                 printWidth: 80,               // Specify the length of line that the printer will wrap on.
                 tabWidth: 2,                  // Specify the number of spaces per indentation-level.
@@ -220,11 +232,11 @@ export default env => {
         devServer: {
             host: 'localhost',
             port: 3000,
-            // hot: true // Good for development, but when npm publish, code is built with lot of HMR sugar
+            hot: ifDev(true, false) // Good for development, but when npm publish, code is built with lot of HMR sugar
         },
 
         devtool: 'source-map'
-        // devtool: ifNotProduction('source-map', undefined) // works. bundle.js is different.
+        // devtool: ifDev('source-map', undefined) // works. bundle.js is different.
         // devtool: false
     }
 };
