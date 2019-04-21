@@ -54,14 +54,12 @@ export default env => {
             // chunkFilename: '[id].[hash:8].js' // ?
             library: ['ReactSum', '[name]'], // ideal case is to have <MyReactCollection.MyComponent />
             libraryTarget: 'umd',
-            umdNamedDefine: true // cause "define("Sum", [], factory);"
+            umdNamedDefine: true,// cause "define("Sum", [], factory);"
+
         },
 
         // Multiple Outputs
-
-        // output: [
-
-        // ],
+        // ??? Ist it even possible?
 
         // Since Webpack v4. Works for both - single and multiple entires approaches.
         // But matters for browser usage example, when error "Cannot read property 'default' of undefined" occurs:
