@@ -8,13 +8,19 @@ Experimental ReactJS component to show sum of 2 numbers, as npm package.
 
 ### How To Use
 
-First import this component where you want to use it
+Import the component where you want to use it, and you ready to use it in `render()`.
+
+Approach 1:
 
 `import ReactSum from '@lundiak/react-sum'`
 
-And you ready to use component in `render()``
+`<ReactSum.Sum />`
 
-`<ReactSum />`
+Approach 2:
+
+`import { Sum } from '@lundiak/react-sum';`
+
+`<Sum />`
 
 ### Props
 
@@ -25,19 +31,21 @@ And you ready to use component in `render()``
 
 ### Example
 
+Your file `MyApp.jsx`:
+
 ```
 import React, { Component } from 'react';
 import ReactSum from '@lundiak/react-sum';
 
-class App extends Component {
+class MyApp extends Component {
   render() {
     return (
-        <ReactSum a={2} b={3}/>
+        <ReactSum.Sum a={2} b={3}/>
     );
   }
 }
 
-export default App;
+export default MyApp;
 ```
 
 ### Resources
