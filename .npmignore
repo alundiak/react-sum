@@ -1,0 +1,5 @@
+#
+# Takes all from .gitignore
+#
+
+dist/report.html

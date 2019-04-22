@@ -3,9 +3,17 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import PrettierPlugin from 'prettier-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 
 const src = resolve(__dirname, './src');
+
+// TODO
+// const isAnalyze = typeof process.env.BUNDLE_ANALYZE !== "undefined";
+// if (isAnalyze) {
+//     plugins.push(new BundleAnalyzerPlugin());
+// }
+// TODO
 
 export default env => {
     console.log(env);
@@ -72,7 +80,7 @@ export default env => {
         },
 
         // Multiple Outputs
-        // ??? Ist it even possible?
+        // ??? Is it even possible?
 
         // Since Webpack v4. Works for both - single and multiple entires approaches.
         // But matters for browser usage example, when error "Cannot read property 'default' of undefined" occurs:
@@ -264,6 +272,11 @@ export default env => {
                 semi: true,                   // Print semicolons at the ends of statements.
                 encoding: 'utf-8',            // Which encoding scheme to use on files
                 extensions: [".less"]       // Which file extensions to process
+            }),
+
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false, // after build open http://127.0.0.1:8888/ but if static
+                analyzerMode: 'static' // then http://localhost:3000/dist/report.html
             })
         ]),
 

@@ -13,13 +13,14 @@
   ],
   "bundledDependencies": false,
   "scripts": {
-    "devBuild": "rm -rf dist && webpack --mode development --env.dev",
+    "devBuild": "rm -rf dist && webpack --mode development --env.dev --progress",
     "prodBuild": "rm -rf dist && webpack --mode production --env.prod",
     "build": "npm run devBuild",
     "prodStart": "webpack-dev-server --mode production --env.prod",
     "start": "webpack-dev-server --mode development --env.dev",
     "test": "jest --verbose --runInBand",
-    "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""
+    "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\"",
+    "analyze": "set NODE_ENV=production&&set BUNDLE_ANALYZE=true && webpack --progress --mode production --env.prod"
   },
   "dependencies": {
     "ascii-math": "^2.0.0"
@@ -67,6 +68,7 @@
     "react-hot-loader": "^4.8.3",
     "url-loader": "^1.1.2",
     "webpack": "^4.30.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.2.3",
     "webpack-config-utils": "^2.3.1",
     "webpack-dev-server": "^3.3.1"
