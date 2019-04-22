@@ -154,33 +154,37 @@ export default env => {
                 },
                 {
                     test: /\.(png|svg|jpg|gif|pdf)$/,
+
+                    // Simple usage
                     // use: [
                     //     'file-loader',
                     // ]
-                    use: [
-                        {
-                            loader: "file-loader",
-                            options: {
-                                name: ifDev('[name].[ext]', '[hash].[ext]'),
-                                // name: '[hash].[ext]', // Default value by loader. Good for Production, but not for open source.
-                                // name: '[name]_[md5:hash].[ext]',
-                                // name: '[path][name].[ext]',
-                                outputPath: 'images', // if omitted, then it goes in root output directory.
-                                // publicPath: '/assets/' // default "__webpack_public_path__"
-                                publicPath: ifDev('/images', './images'),
-                            }
-                        }
-                    ]
-                    // use: {
-                    //     loader: 'url-loader', // converts any image into base64 and inject into JSX/HTML.
-                    //     options:{
-                    //         fallback: "file-loader",
-                    //         name: "[name][md5:hash].[ext]",
-                    //         name: "[path][name].[ext]",
-                    //         outputPath: 'images/',
-                    //         publicPath: '/'
+
+                    // A bit advanced usage
+                    // use: [
+                    //     {
+                    //         loader: "file-loader",
+                    //         options: {
+                    //             name: ifDev('[name].[ext]', '[hash].[ext]'),
+                    //             // name: '[hash].[ext]', // Default value by loader. Good for Production, but not for open source.
+                    //             // name: '[name]_[md5:hash].[ext]',
+                    //             // name: '[path][name].[ext]',
+                    //             outputPath: 'images', // if omitted, then it goes in root output directory.
+                    //             publicPath: ifDev('/images', './images'), // default "__webpack_public_path__"
+                    //         }
                     //     }
-                    // }
+                    // ]
+
+                    // More advanced usage (to fix CSS url() issue)
+                    use: {
+                        loader: 'url-loader', // converts any image into base64 and inject into JSX/HTML.
+                        options:{
+                            fallback: 'file-loader',
+                            name: ifDev('[name].[ext]', '[hash].[ext]'),
+                            outputPath: 'images',
+                            publicPath: ifDev('/images', './images'),
+                        }
+                    }
                 }
             ]
         },
@@ -223,6 +227,13 @@ export default env => {
                 // filename: "[name]_[id].css" // => app_app.css
                 // filename: "[name]_[hash].css" // => app_5398cd6b88d129401089.css
             }),
+
+            // TODO
+            // How to minify for prod code:
+            // https://github.com/webpack-contrib/mini-css-extract-plugin
+            // To minify the output, use a plugin like optimize-css-assets-webpack-plugin.
+            // https://github.com/NMFR/optimize-css-assets-webpack-plugin
+            // TODO
 
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
