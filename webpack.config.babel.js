@@ -78,7 +78,7 @@ export default env => {
             alias: {
                 css: resolve(src, './css'),
                 components: resolve(src, './components'),
-                img: resolve(src, './images'), // used in Sum.jsx
+                img: resolve(src, './images'), // used in Sum.jsx. As alias "img" doesn't work in LESS file.
                 'react': resolve(__dirname, './node_modules/react'),
                 'react-dom': resolve(__dirname, './node_modules/react-dom'),
             },
@@ -96,7 +96,7 @@ export default env => {
             react: {
                 commonjs: 'react',
                 commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
-                amd: 'react', // ? if "React" value, then it cause "Casing" issue.
+                amd: 'react', // if "React" value, then it causes "Casing" issue.
                 root: 'React' // indicates global variable
             },
             'react-dom': {
@@ -165,7 +165,7 @@ export default env => {
                                 // name: '[hash].[ext]', // Default bt loader. Good for Production, but not for open source.
                                 // name: '[name]_[md5:hash].[ext]',
                                 // name: '[path][name].[ext]',
-                                // outputPath: 'images/', // if omitted, then it goes in root output directory.
+                                outputPath: 'images', // if omitted, then it goes in root output directory.
                                 // publicPath: '/'
                             }
                         }
