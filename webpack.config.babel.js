@@ -11,6 +11,18 @@ export default env => {
     console.log(env);
     const { ifProd, ifDev } = getIfUtils(env);
     return {
+        resolve: {
+            alias: {
+                css: resolve(src, './css'),
+                components: resolve(src, './components'),
+                img: resolve(src, './images'), // used in Sum.jsx. As alias "img" doesn't work in LESS file.
+                // 'react': resolve(__dirname, './node_modules/react'),
+                // 'react-dom': resolve(__dirname, './node_modules/react-dom'),
+            },
+            modules: ['node_modules', 'src'],
+            extensions: ['.js', '.css', '.less', '.jsx', '.json']
+        },
+
         // OK for single entry approach
         // entry: './src/index.jsx',
 
@@ -74,24 +86,12 @@ export default env => {
         //     }
         // },
 
-        resolve: {
-            alias: {
-                css: resolve(src, './css'),
-                components: resolve(src, './components'),
-                img: resolve(src, './images'), // used in Sum.jsx. As alias "img" doesn't work in LESS file.
-                'react': resolve(__dirname, './node_modules/react'),
-                'react-dom': resolve(__dirname, './node_modules/react-dom'),
-            },
-            modules: ['node_modules', 'src'],
-            extensions: ['.js', '.css', '.less', '.jsx', '.json']
-        },
-
         // https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
         // Don't bundle react or react-dom
         // AL: looks like because it causes error:
         // "Cannot read property 'Component' of undefined" on HOT load (local run).
         // Final version of es5-code contains smth like root() which cause using "default" not working.
-        externals: {
+        externals: ifProd({
             // react: 'react', // simple version
             react: {
                 commonjs: 'react',
@@ -105,8 +105,8 @@ export default env => {
                 amd: 'react-dom',
                 root: 'ReactDOM' // indicates global variable
             }
-        },
-        // But I read somewhere, that if "optimization" used, then no need to care about externals. All vendors extracted.
+        }, {}), // not sure if such approach used. But looks like using externals for devBuild seems redundant.
+        // I also read somewhere, that if "optimization" used, then no need to care about externals. All vendors extracted.
 
         module: {
             rules: [
@@ -226,6 +226,7 @@ export default env => {
 
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',
+                prod: env.prod, // my custom option/field.
                 filename: 'index.html',
                 template: './src/index.html',
                 minify: {

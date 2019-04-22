@@ -7,8 +7,10 @@
     <title>ReactJS npm package</title>
 
     <!-- If devBuild or prodBuild executed with using externals, then these 2 lines should be added manually.-->
+    <% if(htmlWebpackPlugin.options.prod) { %>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <% } %>
 </head>
 
 <body>
