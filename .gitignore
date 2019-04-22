@@ -2,6 +2,7 @@ node_modules
 bower_components
 coverage
 dist
+dist/report.html
 
 .eslintcache
 *.log
