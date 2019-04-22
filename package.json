@@ -2,11 +2,11 @@
   "name": "@lundiak/react-sum",
   "version": "1.2.14",
   "description": "ReactJS component to show sum of 2 numbers, as npm package.",
-  "main": "dist/Sum.js",
+  "browser": "dist/app.js",
   "module": "src/components/App.jsx",
+  "main": "dist/app.js",
   "esm": "src/components/App.jsx",
   "jsnext:main": "src/components/App.jsx",
-  "browser": "dist/Sum.js",
   "files": [
     "dist",
     "src"

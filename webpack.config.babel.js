@@ -19,6 +19,7 @@ export default env => {
     console.log(env);
     const { ifProd, ifDev } = getIfUtils(env);
     return {
+        // target: 'web', // <=== can be omitted as default is 'web'
         resolve: {
             alias: {
                 css: resolve(src, './css'),
