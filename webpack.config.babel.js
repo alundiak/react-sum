@@ -161,8 +161,8 @@ export default env => {
                         {
                             loader: "file-loader",
                             options: {
-                                name: "[name].[ext]",
-                                // name: '[hash].[ext]', // Default bt loader. Good for Production, but not for open source.
+                                name: ifDev('[name].[ext]', '[hash].[ext]'),
+                                // name: '[hash].[ext]', // Default value by loader. Good for Production, but not for open source.
                                 // name: '[name]_[md5:hash].[ext]',
                                 // name: '[path][name].[ext]',
                                 outputPath: 'images', // if omitted, then it goes in root output directory.

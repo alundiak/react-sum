@@ -13,9 +13,8 @@
   ],
   "bundledDependencies": false,
   "scripts": {
-    "prebuild": "rm -rf dist",
-    "devBuild": "webpack --mode development --env.dev",
-    "prodBuild": "webpack --mode production --env.prod",
+    "devBuild": "rm -rf dist && webpack --mode development --env.dev",
+    "prodBuild": "rm -rf dist && webpack --mode production --env.prod",
     "build": "npm run devBuild",
     "prodStart": "webpack-dev-server --mode production --env.prod",
     "start": "webpack-dev-server --mode development --env.dev",
