@@ -35,7 +35,7 @@ export default env => {
         // OK for single entry approach
         // output: {
         //     path: resolve(__dirname, 'dist'),
-        //     publicPath: env.dev ? '/' : './',
+        //     publicPath: ifDev('/', './'),
         //     filename: 'bundle.js',
         //     library: 'ReactSum',
         //     libraryTarget: 'umd'
@@ -44,7 +44,7 @@ export default env => {
         // OK for multiple entries approach
         output: {
             path: resolve(__dirname, 'dist'),
-            publicPath: env.dev ? '/' : './',
+            publicPath: ifDev('/', './'),
             filename: '[name].js',
             // filename: '[name]_[hash].js',
             // filename: '[name].[hash:8].js',
@@ -77,7 +77,9 @@ export default env => {
             alias: {
                 css: resolve(src, './css'),
                 components: resolve(src, './components'),
-                img: resolve(src, './images')
+                img: resolve(src, './images'),
+                // 'react': resolve(__dirname, './node_modules/react'),
+                // 'react-dom': resolve(__dirname, './node_modules/react-dom'),
             },
             modules: ['node_modules', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
@@ -89,20 +91,21 @@ export default env => {
         // "Cannot read property 'Component' of undefined" on HOT load (local run).
         // Final version of es5-code contains smth like root() which cause using "default" not working.
         // externals: {
-        //     // react: 'react', // simple version
-        //     // react: {
-        //     //     commonjs: 'react',
-        //     //     commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
-        //     //     amd: 'react',
-        //     //     root: 'React' // indicates global variable
-        //     // }
-        //     // 'react-dom': {
-        //     //     commonjs: 'react-dom',
-        //     //     commonjs2: 'react-dom',
-        //     //     amd: 'react-dom',
-        //     //     root: 'ReactDOM' // indicates global variable
-        //     // }
+        //     react: 'react', // simple version
+        //     react: {
+        //         commonjs: 'react',
+        //         commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
+        //         amd: 'React',
+        //         root: 'React' // indicates global variable
+        //     },
+        //     'react-dom': {
+        //         commonjs: 'react-dom',
+        //         commonjs2: 'react-dom',
+        //         amd: 'ReactDOM',
+        //         root: 'ReactDOM' // indicates global variable
+        //     }
         // },
+        // But I read somewhere, that if "optimization" used, then no need to care about externals. All vendors extracted.
 
         module: {
             rules: [
