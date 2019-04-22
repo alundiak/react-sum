@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DangMath from './DangMath';
-import sigmaImg from '../images/sigma.png';
+import DangMath from './DangMath'; // when using DangMath import, then Sum.default doesn't exists. Removing "optimization" and adding "externals" helps.
+import sigmaImg from '../images/sigma.png'; // using imported image is OK. Sum.default exists.
 // import sigmaImg from 'img/sigma.png'; // also works. But will require react-experiments to provide an webpack alias.
 import '../css/react-sum.less';
 

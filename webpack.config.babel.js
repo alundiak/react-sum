@@ -29,6 +29,7 @@ export default env => {
                 // './src/css/with-alias.css'
             ],
             Sum: ['./src/components/Sum.jsx'], // should I include react-sum.less/css?
+            // DangMath: ['./src/components/DangMath.jsx'], // because in prodBuild, Sum.jsx doesn't import/bundle it by itself. wierd. TOO?
             SumWithCssAlias: ['./src/components/SumWithCssAlias.jsx'/* , './src/css/with-alias.css' */]
         },
 
@@ -65,21 +66,21 @@ export default env => {
         // But matters for browser usage example, when error "Cannot read property 'default' of undefined" occurs:
         // - devBuild (then expects "default") or
         // - prodBuild (then works OK)
-        optimization: {
-            splitChunks: {
-                chunks: 'all'
-                // using cacheGroups:{} we can split into dedicated files
-                // https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
-            }
-        },
+        // optimization: {
+        //     splitChunks: {
+        //         chunks: 'all'
+        //         // using cacheGroups:{} we can split into dedicated files
+        //         // https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
+        //     }
+        // },
 
         resolve: {
             alias: {
                 css: resolve(src, './css'),
                 components: resolve(src, './components'),
                 img: resolve(src, './images'), // used in Sum.jsx
-                // 'react': resolve(__dirname, './node_modules/react'),
-                // 'react-dom': resolve(__dirname, './node_modules/react-dom'),
+                'react': resolve(__dirname, './node_modules/react'),
+                'react-dom': resolve(__dirname, './node_modules/react-dom'),
             },
             modules: ['node_modules', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
@@ -90,21 +91,21 @@ export default env => {
         // AL: looks like because it causes error:
         // "Cannot read property 'Component' of undefined" on HOT load (local run).
         // Final version of es5-code contains smth like root() which cause using "default" not working.
-        // externals: {
-        //     react: 'react', // simple version
-        //     react: {
-        //         commonjs: 'react',
-        //         commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
-        //         amd: 'React',
-        //         root: 'React' // indicates global variable
-        //     },
-        //     'react-dom': {
-        //         commonjs: 'react-dom',
-        //         commonjs2: 'react-dom',
-        //         amd: 'ReactDOM',
-        //         root: 'ReactDOM' // indicates global variable
-        //     }
-        // },
+        externals: {
+            // react: 'react', // simple version
+            react: {
+                commonjs: 'react',
+                commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
+                amd: 'React',
+                root: 'React' // indicates global variable
+            },
+            'react-dom': {
+                commonjs: 'react-dom',
+                commonjs2: 'react-dom',
+                amd: 'ReactDOM',
+                root: 'ReactDOM' // indicates global variable
+            }
+        },
         // But I read somewhere, that if "optimization" used, then no need to care about externals. All vendors extracted.
 
         module: {
