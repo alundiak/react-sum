@@ -1,21 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import DangMath from './DangMath';
+import sigmaImg from '../images/sigma.png';
+// import sigmaImg from 'img/sigma.png'; // also works. But will require react-experiments to provide an webpack alias.
 import '../css/react-sum.less';
 
+/* eslint react/self-closing-comp: 0 */
 class Sum extends React.Component {
     state = {
         // TODO - create input fields and take values for interactive Sum()
     }
 
-    render() {
-        const { a, b } = this.props;
+    getPieceToRender = () => {
+        const { a, b, useImages, useASCII } = this.props;
         const result = a + b;
 
-        return (
-            <div className="sum">
+        let pieceToRender = (
+            <React.Fragment>
                 <h1>Sum</h1>
                 <h3>{a} + {b} = {result}</h3>
+            </React.Fragment>
+        );
+
+        if (useImages) {
+            // TODO use dynamic import()
+            pieceToRender = (
+                <React.Fragment>
+                    <img src={sigmaImg} alt="sigma" />
+                    <h3>{a} + {b} <div className="equal"></div> {result}</h3>
+                </React.Fragment>
+            );
+        }
+
+        if (useASCII) {
+            // TODO use dynamic import()
+            pieceToRender = (
+                <React.Fragment>
+                    <DangMath a={a} b={b} c={result} />
+                </React.Fragment>
+            );
+        }
+
+        return pieceToRender;
+    };
+
+    render() {
+        return (
+            <div className="sum">
+                {this.getPieceToRender()}
             </div>
         );
     }
@@ -23,12 +55,16 @@ class Sum extends React.Component {
 
 Sum.propTypes = {
     a: PropTypes.number,
-    b: PropTypes.number
+    b: PropTypes.number,
+    useImages: PropTypes.bool,
+    useASCII: PropTypes.bool
 };
 
 Sum.defaultProps = {
     a: 2,
-    b: 2
+    b: 2,
+    useImages: false,
+    useASCII: false
 };
 
 export default Sum;

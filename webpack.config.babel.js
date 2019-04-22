@@ -77,7 +77,7 @@ export default env => {
             alias: {
                 css: resolve(src, './css'),
                 components: resolve(src, './components'),
-                img: resolve(src, './images'),
+                img: resolve(src, './images'), // used in Sum.jsx
                 // 'react': resolve(__dirname, './node_modules/react'),
                 // 'react-dom': resolve(__dirname, './node_modules/react-dom'),
             },
@@ -153,9 +153,32 @@ export default env => {
                 },
                 {
                     test: /\.(png|svg|jpg|gif|pdf)$/,
+                    // use: [
+                    //     'file-loader',
+                    // ]
                     use: [
-                        'file-loader'
+                        {
+                            loader: "file-loader",
+                            options: {
+                                name: "[name].[ext]",
+                                // name: '[hash].[ext]', // Default bt loader. Good for Production, but not for open source.
+                                // name: '[name]_[md5:hash].[ext]',
+                                // name: '[path][name].[ext]',
+                                // outputPath: 'images/', // if omitted, then it goes in root output directory.
+                                // publicPath: '/'
+                            }
+                        }
                     ]
+                    // use: {
+                    //     loader: 'url-loader', // converts any image into base64 and inject into JSX/HTML.
+                    //     options:{
+                    //         fallback: "file-loader",
+                    //         name: "[name][md5:hash].[ext]",
+                    //         name: "[path][name].[ext]",
+                    //         outputPath: 'images/',
+                    //         publicPath: '/'
+                    //     }
+                    // }
                 }
             ]
         },

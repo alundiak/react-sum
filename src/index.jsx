@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from 'components/App';
 import { Sum } from 'components/App';
 import { SumWithCssAlias } from 'components/App';
-// import SumWithAscii from 'components/SumWithAscii';
 import 'css/main.less';
 
 const Main = () => (
@@ -14,7 +13,9 @@ const Main = () => (
     <App.Sum a={3} b={3} />
     <App.SumWithCssAlias a={4} b={4} />
 
-    {/* <SumWithAscii a={99} b={99} useASCII /> */}
+    <Sum a={33} b={33} useImages />
+
+    <Sum a={44} b={44} useASCII />
   </React.Fragment>
 );
 
