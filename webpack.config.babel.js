@@ -166,7 +166,8 @@ export default env => {
                                 // name: '[name]_[md5:hash].[ext]',
                                 // name: '[path][name].[ext]',
                                 outputPath: 'images', // if omitted, then it goes in root output directory.
-                                // publicPath: '/'
+                                // publicPath: '/assets/' // default "__webpack_public_path__"
+                                publicPath: ifDev('/images', './images'),
                             }
                         }
                     ]
