@@ -96,13 +96,13 @@ export default env => {
             react: {
                 commonjs: 'react',
                 commonjs2: 'react', // if not provided, then => "Missing external configuration for type:commonjs2"
-                amd: 'React',
+                amd: 'react', // ? if "React" value, then it cause "Casing" issue.
                 root: 'React' // indicates global variable
             },
             'react-dom': {
                 commonjs: 'react-dom',
                 commonjs2: 'react-dom',
-                amd: 'ReactDOM',
+                amd: 'react-dom',
                 root: 'ReactDOM' // indicates global variable
             }
         },
