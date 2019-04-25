@@ -15,7 +15,7 @@ const Main = () => (
 
     <Sum a={33} b={33} useImages />
 
-    <Sum a={44} b={44} useASCII />
+    {/* <Sum a={44} b={44} useASCII /> */}
   </React.Fragment>
 );
 
