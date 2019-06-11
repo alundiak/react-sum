@@ -90,7 +90,7 @@ blocks:
           commands:
             # - cd src/client
             # At this point we can assume 100% cache hit rate of node modules:
-            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
 
             # Run task as defined in package.json:
             - npm run lint
@@ -111,14 +111,14 @@ blocks:
       prologue:
         commands:
           - checkout
-      #     - nvm use
-      #     - node --version
-      #     - npm --version
+          - nvm use
+          - node --version
+          - npm --version
       jobs:
         - name: Client Tests
           commands:
             # - cd src/client
-            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm test
         # - name: Server Tests
         #   commands:
@@ -173,11 +173,11 @@ blocks:
       prologue:
         commands:
           - checkout
-      #     - nvm use
-      #     - node --version
-      #     - npm --version
+          - nvm use
+          - node --version
+          - npm --version
       jobs:
         - name: Prod Build
           commands:
-            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm run prodBuild
