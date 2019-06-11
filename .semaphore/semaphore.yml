@@ -4,7 +4,7 @@ version: v1.0
 # Name your pipeline. In case you connect multiple pipelines with promotions,
 # the name will help you differentiate between, for example, a CI build phase
 # and delivery phases.
-name: Semaphore JavaScript Example Pipeline
+name: Semaphore JavaScript Example Pipeline (Modified by Andrii L)
 
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
@@ -56,7 +56,8 @@ blocks:
             # run very fast.
             # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
             - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
-            - npm install
+            # - npm install
+            - npm ci
 
             # Store the latest version of node modules in cache to reuse in
             # further blocks:
@@ -78,18 +79,18 @@ blocks:
           value: test
         - name: CI
           value: 'true'
-      prologue:
-        commands:
-          - checkout
-          - nvm use
-          - node --version
-          - npm --version
+      # prologue:
+      #   commands:
+      #     - checkout
+      #     - nvm use
+      #     - node --version
+      #     - npm --version
       jobs:
         - name: Client Lint
           commands:
             # - cd src/client
             # At this point we can assume 100% cache hit rate of node modules:
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
 
             # Run task as defined in package.json:
             - npm run lint
@@ -107,17 +108,17 @@ blocks:
           value: test
         - name: CI
           value: 'true'
-      prologue:
-        commands:
-          - checkout
-          - nvm use
-          - node --version
-          - npm --version
+      # prologue:
+      #   commands:
+      #     - checkout
+      #     - nvm use
+      #     - node --version
+      #     - npm --version
       jobs:
         - name: Client Tests
           commands:
             # - cd src/client
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm test
         # - name: Server Tests
         #   commands:
@@ -169,14 +170,14 @@ blocks:
           value: build
         - name: CI
           value: 'true'
-      prologue:
-        commands:
-          - checkout
-          - nvm use
-          - node --version
-          - npm --version
+      # prologue:
+      #   commands:
+      #     - checkout
+      #     - nvm use
+      #     - node --version
+      #     - npm --version
       jobs:
         - name: Prod Build
           commands:
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm run prodBuild
