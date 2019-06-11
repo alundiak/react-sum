@@ -2,6 +2,7 @@ import { join, resolve } from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import PrettierPlugin from 'prettier-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
@@ -68,6 +69,16 @@ export default env => {
             path: resolve(__dirname, 'dist'),
             publicPath: ifDev('/', './'),
             filename: '[name].js',
+
+            // Works
+            // filename: (chunkData, a, b) => {
+            //     console.log('AAAA', chunkData, a, b);
+            //     console.log('BBBB', typeof chunkData.chunk, chunkData.chunk);
+            //     console.log('CCCC', chunkData.chunk.name, a, b);
+            //     return '[name].js';
+            // },
+            // Works
+
             // filename: '[name]_[hash].js',
             // filename: '[name].[hash:8].js',
             // filename: '[name].[contenthash].js', // => Cannot use [chunkhash] or [contenthash] for chunk in '[name].[contenthash].js' (use [hash] instead)
@@ -243,6 +254,14 @@ export default env => {
             // To minify the output, use a plugin like optimize-css-assets-webpack-plugin.
             // https://github.com/NMFR/optimize-css-assets-webpack-plugin
             // TODO
+
+            // JUST example - for future usage.
+            new CopyWebpackPlugin([
+                {
+                    from: 'src/images/equal.png',
+                    to: './equal_copied.png'
+                },
+            ]),
 
             new HtmlWebpackPlugin({
                 title: 'ReactJS npm package',

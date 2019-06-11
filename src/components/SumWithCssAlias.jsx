@@ -15,7 +15,7 @@ class SumWithCssAlias extends React.Component {
 
         return (
             <div className="sum">
-                <h1 className="with-alias">Sum (with alias)</h1>
+                <h1 className="with-alias">Sum (w alias)</h1>
                 <h3>{a} + {b} = {result}</h3>
             </div>
         );
