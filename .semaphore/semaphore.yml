@@ -79,12 +79,12 @@ blocks:
           value: test
         - name: CI
           value: 'true'
-      # prologue:
-      #   commands:
-      #     - checkout
-      #     - nvm use
-      #     - node --version
-      #     - npm --version
+      prologue:
+        commands:
+          - checkout
+          # - nvm use
+          # - node --version
+          # - npm --version
       jobs:
         - name: Client Lint
           commands:
@@ -108,9 +108,9 @@ blocks:
           value: test
         - name: CI
           value: 'true'
-      # prologue:
-      #   commands:
-      #     - checkout
+      prologue:
+        commands:
+          - checkout
       #     - nvm use
       #     - node --version
       #     - npm --version
@@ -170,9 +170,9 @@ blocks:
           value: build
         - name: CI
           value: 'true'
-      # prologue:
-      #   commands:
-      #     - checkout
+      prologue:
+        commands:
+          - checkout
       #     - nvm use
       #     - node --version
       #     - npm --version
