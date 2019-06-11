@@ -82,9 +82,9 @@ blocks:
       prologue:
         commands:
           - checkout
-          # - nvm use
-          # - node --version
-          # - npm --version
+          - nvm use
+          - node --version
+          - npm --version
       jobs:
         - name: Client Lint
           commands:
