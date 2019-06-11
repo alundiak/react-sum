@@ -38,6 +38,9 @@ jobs:
       # run tests!
       - run: npm test
 
+      # Storybook Static build
+      - run: npm run build-storybook
+
       # in future
       #- run: npm version patch
       #- run: npm publish

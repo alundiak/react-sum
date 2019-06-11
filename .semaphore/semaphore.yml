@@ -181,3 +181,4 @@ blocks:
           commands:
             - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm run prodBuild
+            - npm run build-storybook
