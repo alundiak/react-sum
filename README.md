@@ -48,6 +48,17 @@ class MyApp extends Component {
 export default MyApp;
 ```
 
+### Storybook
+
+- [Guide for setup](https://storybook.js.org/docs/guides/guide-react/)
+- [Writing Storybook Stories](https://storybook.js.org/docs/basics/writing-stories/)
+
+To run locally:
+
+```
+npm run storybook
+```
+
 ### Resources
 
 About npm `main`, `browser` and `module`, `jsnext:main`, `esm`, `esnext`(2017)
