@@ -7,3 +7,7 @@ dist/report.html
 .eslintcache
 *.log
 .env
+
+# In fact it's dist-like folder after Storybook reload.
+# Ideal case to have it ignored, and NodeJS/Apache folder root to be used instead.
+# storybook-static

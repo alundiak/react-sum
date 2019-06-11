@@ -1,0 +1,22 @@
+.sum math {
+  font-size: 20px;
+  margin: 46px auto;
+  display: inline-block;
+}
+
+.sum {
+  border: 1px green dashed;
+  margin: 3px;
+  padding: 3px;
+}
+.sum img {
+  width: 50px;
+}
+.sum .equal {
+  width: 58px;
+  height: 32px;
+  background: url(static/media/equal.f9c48ab1.png) center;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
