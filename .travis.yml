@@ -2,7 +2,7 @@ language: node_js
 
 node_js:
   - "12.4.0" # current
-  - "10.16.0" # stable
+  # - "10.16.0" # stable # commented to compare all CI instances with one NodeJS instance only.
 script:
   - "npm run prodBuild"
   - "npm test"
