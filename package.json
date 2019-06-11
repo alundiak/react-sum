@@ -18,7 +18,8 @@
     "build": "npm run devBuild",
     "prodStart": "webpack-dev-server --mode production --env.prod",
     "start": "webpack-dev-server --mode development --env.dev",
-    "test": "jest --verbose --runInBand",
+    "testJest": "jest --verbose --runInBand",
+    "test": "echo \"No test for now.\"",
     "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\"",
     "analyze": "set NODE_ENV=production&&set BUNDLE_ANALYZE=true && webpack --progress --mode production --env.prod"
   },
