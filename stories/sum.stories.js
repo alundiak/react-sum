@@ -20,4 +20,4 @@ storiesOf('Sum with alias', module)
   .add('custom numbers', () => <SumWithCssAlias a={7} b={7} />);
 
 storiesOf('DangMath', module)
-    .add('simple usage', () => <DangMath a={8} b={8} c={16} />);
+  .add('simple usage', () => <DangMath a={8} b={8} c={16} />);
