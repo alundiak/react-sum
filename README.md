@@ -8,6 +8,10 @@ Experimental ReactJS component to show sum of 2 numbers, as npm package.
 
 ## Consumer Usage
 
+### Installation
+
+`npm install --save @lundiak/react-sum`
+
 Import the component where you want to use it, and you ready to use it in `render()`.
 
 Approach 1:
@@ -53,7 +57,7 @@ export default MyApp;
 
 ### Installation
 
-`npm install --save @lundiak/react-sum`
+`npm install`
 
 ### Tests
 
@@ -82,7 +86,7 @@ Note: it will run:
 - Using `patch` will increase SemVer patch only.
 
 
-### Resources
+## Resources
 
 About npm `main`, `browser` and `module`, `jsnext:main`, `esm`, `esnext`(2017)
 - https://webpack.js.org/configuration/resolve/#resolvemainfields
@@ -102,25 +106,16 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - https://github.com/babel/babel/issues/8711
 
 
-Webpack and related
+### Webpack related
 - https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
 
-Other similar named packages
-- https://github.com/cezary/react-math + https://github.com/ForbesLindesay/ascii-math
 
-Notes
+### Math related
+- https://github.com/cezary/react-math + https://github.com/ForbesLindesay/ascii-math
 - HTML [math](https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math) tag [isn't supported](https://caniuse.com/#search=mathml) by Chrome, and works only in Firefox and Safari.
 - http://eyeasme.com/Joe/MathML/MathML_browser_test.html
 
-
-## TODO
-
-- JSS - https://cssinjs.org/
-- Styled Component?
-- ReactCSS - https://github.com/casesandberg/reactcss
-- How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.
-
-## Testing
+### Testing
   - https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
   - https://raygun.com/blog/mocha-vs-jasmine-chai-sinon-cucumber/
 
@@ -135,3 +130,12 @@ Notes
     - https://github.com/bencompton/jest-cucumber/tree/master/examples
     - https://codeburst.io/react-behavior-driven-development-bdd-535afd364e5f
     - https://github.com/stlouisweb/react-cucumber-base - good examples
+
+
+
+## TODO
+
+- JSS - https://cssinjs.org/
+- Styled Component?
+- ReactCSS - https://github.com/casesandberg/reactcss
+- How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.
