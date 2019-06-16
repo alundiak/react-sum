@@ -6,11 +6,7 @@ Experimental ReactJS component to show sum of 2 numbers, as npm package.
 [![CircleCI](https://circleci.com/gh/alundiak/react-sum.svg?style=svg)](https://circleci.com/gh/alundiak/react-sum)
 [![SemaphoreCI](https://semaphoreci.com/api/v1/alundiak/react-sum/branches/master/badge.svg)](https://semaphoreci.com/alundiak/react-sum)
 
-### Installation
-
-`npm install --save @lundiak/react-sum`
-
-### How To Use
+## Consumer Usage
 
 Import the component where you want to use it, and you ready to use it in `render()`.
 
@@ -39,18 +35,29 @@ Your file `MyApp.jsx`:
 
 ```
 import React, { Component } from 'react';
-import ReactSum from '@lundiak/react-sum';
+import { Sum } from '@lundiak/react-sum';
 
 class MyApp extends Component {
   render() {
     return (
-        <ReactSum.Sum a={2} b={3}/>
+        <Sum a={2} b={3}/>
     );
   }
 }
 
 export default MyApp;
 ```
+
+
+## Development
+
+### Installation
+
+`npm install --save @lundiak/react-sum`
+
+### Tests
+
+`npm test`
 
 ### Storybook
 
@@ -62,6 +69,18 @@ To run locally:
 ```
 npm run storybook
 ```
+
+### Publish new version
+
+`npm version patch`
+
+Note: it will run:
+- `npm run prodBuild` to build JSX files into `dist` folder.
+- `npm test` to verify Component logic (but for now Jest and Cucumber uses `dist` folder files).
+- `npm run build-storybook` to build local, static version of Storybook ready for publish.
+- will add changes files to git commit and publish changes.
+- Using `patch` will increase SemVer patch only.
+
 
 ### Resources
 
@@ -107,6 +126,7 @@ Notes
 
 ### Jest + Enzyme
 - https://jestjs.io/docs/en/tutorial-react
+- https://blog.bitsrc.io/how-to-test-react-components-with-jest-and-enzyme-in-depth-145fcd06b90
 
 ### Cucumber for JavaScript
 - [`cucumber`](https://github.com/cucumber/cucumber-js), since 2011, 979 commits

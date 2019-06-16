@@ -24,7 +24,7 @@
     "storybook": "start-storybook -p 6006",
     "storybookW": "start-storybook -p 6006 --debug-webpack",
     "build-storybook": "build-storybook",
-    "preversion": "npm run prodBuild && npm run build-storybook && git add . && git commit -m 'Prepare for new version'",
+    "preversion": "npm run prodBuild && npm test && npm run build-storybook && git add . && git commit -m 'Prepare for new version'",
     "postversion": "npm publish",
     "postversionLundiak": "npm publish --tag=lundiak",
     "postpublish": "git push origin --all && git push origin --tags"
