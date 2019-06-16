@@ -12,6 +12,8 @@ import DangMath from 'components/DangMath';
 storiesOf('Sum', module)
   .add('2+2 (default)', () => <Sum />)
   .add('custom numbers', () => <Sum a={3} b={3} />)
+  .add('negative numbers', () => <Sum a={3} b={-2} />)
+  .add('negative numbers (=> 0)', () => <Sum a={3} b={-3} />)
   .add('useImages', () => <Sum a={4} b={4} useImages />)
   .add('useASCII', () => <Sum a={5} b={5} useASCII />);
 

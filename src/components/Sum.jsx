@@ -17,8 +17,8 @@ class Sum extends React.Component {
 
         let pieceToRender = (
             <React.Fragment>
-                <h1>Sum</h1>
-                <h3>{a} + {b} = {result}</h3>
+                <h1 className="title">Sum</h1>
+                <h3 className="result">{a} + {b} = {result}</h3>
             </React.Fragment>
         );
 

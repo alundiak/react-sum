@@ -100,3 +100,17 @@ Notes
 - Styled Component?
 - ReactCSS - https://github.com/casesandberg/reactcss
 - How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.
+
+## Testing
+  - https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
+  - https://raygun.com/blog/mocha-vs-jasmine-chai-sinon-cucumber/
+
+### Jest + Enzyme
+- https://jestjs.io/docs/en/tutorial-react
+
+### Cucumber for JavaScript
+- [`cucumber`](https://github.com/cucumber/cucumber-js), since 2011, 979 commits
+  - [`react-cucumber`](https://github.com/pzavolinsky/react-cucumber), since 2017, 16 commits
+  - [`jest-cucumber`](https://github.com/bencompton/jest-cucumber), since 2018, 153 commits
+    - https://codeburst.io/react-behavior-driven-development-bdd-535afd364e5f
+    - https://github.com/stlouisweb/react-cucumber-base - good examples
