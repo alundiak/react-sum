@@ -63,16 +63,23 @@ export default MyApp;
 
 `npm test`
 
-### Storybook
+### Style Guide vs. Documentation
+
+**Storybook**
 
 - [Guide for setup](https://storybook.js.org/docs/guides/guide-react/)
 - [Writing Storybook Stories](https://storybook.js.org/docs/basics/writing-stories/)
+- [Storybook examples](https://github.com/storybookjs/storybook/tree/next/examples)
 
 To run locally:
 
 ```
 npm run storybook
 ```
+
+**Docz** and **Styleguidist** and other
+- https://css-tricks.com/front-end-documentation-style-guides-and-the-rise-of-mdx/
+
 
 ### Publish new version
 

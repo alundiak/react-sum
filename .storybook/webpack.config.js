@@ -2,9 +2,10 @@
 // https://github.com/storybookjs/storybook/issues/3916
 // https://github.com/webpack-contrib/mini-css-extract-plugin/issues/73#issuecomment-380510188
 
-const path= require('path');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // import { getIfUtils, removeEmpty } from 'webpack-config-utils';
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
 module.exports = async ({ env, config, mode }) => {
     // const { ifProd, ifDev } = getIfUtils(mode);
@@ -48,6 +49,18 @@ module.exports = async ({ env, config, mode }) => {
                 }
             ]
         },
+        {
+            test: /\.mdx$/,
+            use: [
+                { loader: 'babel-loader' },
+                {
+                    loader: '@mdx-js/loader',
+                    options: {
+                        compilers: [createCompiler({})],
+                    },
+                },
+            ],
+        }
     ];
 
     //
