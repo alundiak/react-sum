@@ -1,3 +1,4 @@
+# https://www.appveyor.com/docs/lang/nodejs-iojs/
 version: "{build}"
 
 shallow_clone: true
@@ -12,6 +13,7 @@ environment:
   matrix:
     # node.js
     - nodejs_version: stable
+    - nodejs_version: MAJOR
 
 install:
   - ps: Install-Product node $env:nodejs_version
