@@ -9,6 +9,7 @@ Experiment related to Component creation process and usage of tolls, such as: np
 [![SemaphoreCI](https://semaphoreci.com/api/v1/alundiak/react-sum/branches/master/badge.svg)](https://semaphoreci.com/alundiak/react-sum)
 [![AppVeyorCI](https://ci.appveyor.com/api/projects/status/selytkekkws81f3v?svg=true)](https://ci.appveyor.com/project/alundiak/react-sum)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_small)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_shield)
 
 
 ## Consumer Usage
@@ -151,3 +152,7 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - Styled Component?
 - ReactCSS - https://github.com/casesandberg/reactcss
 - How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_large)
