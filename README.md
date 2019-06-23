@@ -5,6 +5,8 @@ Experimental ReactJS component to show sum of 2 numbers, as npm package.
 [![TravisCI](https://travis-ci.org/alundiak/react-sum.svg?branch=master)](https://travis-ci.org/alundiak/react-sum)
 [![CircleCI](https://circleci.com/gh/alundiak/react-sum.svg?style=svg)](https://circleci.com/gh/alundiak/react-sum)
 [![SemaphoreCI](https://semaphoreci.com/api/v1/alundiak/react-sum/branches/master/badge.svg)](https://semaphoreci.com/alundiak/react-sum)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_small)
+
 
 ## Consumer Usage
 
