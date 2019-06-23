@@ -1,6 +1,8 @@
 # React Sum
 
-Experimental ReactJS component to show sum of 2 numbers, as npm package.
+Experimental ReactJS component to show sum of 2 numbers.
+
+Experiment related to Component creation process and usage of tolls, such as: npm, ESLINT, Webpack, Babel, Create React App, React Scripts, Storybook, Jest, Enzyme, Cucumber and CI tools.
 
 [![TravisCI](https://travis-ci.org/alundiak/react-sum.svg?branch=master)](https://travis-ci.org/alundiak/react-sum)
 [![CircleCI](https://circleci.com/gh/alundiak/react-sum.svg?style=svg)](https://circleci.com/gh/alundiak/react-sum)
