@@ -19,7 +19,9 @@ const group = `Component (v${version})|`;
 
 storiesOf(group + 'Sum', module)
   // .addDecorator(withInfo)
-  .add('2+2 (default)', () => <Sum onClick={action('clicked')} />)
+  .add('2+2 (default)', () => <Sum onClick={action('clicked')} />, {
+    notes: "Hello"
+  })
   .add('custom numbers', () => <Sum a={3} b={3} />)
   .add('negative numbers', () => <Sum a={3} b={-2} />)
   .add('negative numbers (=> 0)', () => <Sum a={3} b={-3} />)
@@ -28,7 +30,7 @@ storiesOf(group + 'Sum', module)
 
 storiesOf(group + 'Sum with alias', module)
   .add('default logic', () => <SumWithCssAlias a={6} b={6} />)
-  .add('custom numbers', () => <SumWithCssAlias a={7} b={7} />, {
+  .add('custom numbers (with notes)', () => <SumWithCssAlias a={7} b={7} />, {
     // notes: 'A very simple example of addon notes'
     notes: {
       Intro: 'A very simple example of addon notes',

@@ -83,6 +83,10 @@ To run locally:
 npm run storybook
 ```
 
+**Storybook Addons**
+- https://github.com/tuchk4/storybook-readme
+- https://www.npmjs.com/package/@storybook/addon-storysource (alternative to [storybook-addon-jsx](https://www.npmjs.com/package/storybook-addon-jsx))
+
 **Docz** and **Styleguidist** and other
 - https://css-tricks.com/front-end-documentation-style-guides-and-the-rise-of-mdx/
 

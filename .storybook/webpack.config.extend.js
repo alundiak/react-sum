@@ -1,3 +1,5 @@
+// Deprecated
+// https://storybook.js.org/docs/configurations/custom-webpack-config/#extend-mode-deprecated
 // const path = require('path');
 // your app's webpack.config.js
 const custom = require('../webpack.config.babel');
