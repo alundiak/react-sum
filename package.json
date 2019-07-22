@@ -23,7 +23,7 @@
     "analyze": "set NODE_ENV=production&&set BUNDLE_ANALYZE=true && webpack --progress --mode production --env.prod",
     "storybook": "start-storybook -p 6006",
     "storybookW": "start-storybook -p 6006 --debug-webpack",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o ./dist/storybook",
     "predeploy": "npm run prodBuild && npm run build-storybook",
     "deploy": "gh-pages -d dist storybook-static",
     "preversion": "npm run prodBuild && npm test && npm run build-storybook && git add . && git commit -m 'Prepare for new version'",
