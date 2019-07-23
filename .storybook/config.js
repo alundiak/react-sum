@@ -3,11 +3,13 @@ import { configure, addParameters, addDecorator } from '@storybook/react';
 // import { load } from '@storybook/react';
 // import { withInfo } from '@storybook/addon-info';
 import withVersion from '../addons/index';
+import { version } from '../package';
 
 // addDecorator(withInfo);
 addDecorator(withVersion);
 
 addParameters({
+  version,
   options: {
     hierarchySeparator: /\//
     // Helps to avoid hierarchy, when in story "kind" name is a dot/period ".", but

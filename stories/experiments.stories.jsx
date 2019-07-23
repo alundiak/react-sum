@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 // import { linkTo } from '@storybook/addon-links';
@@ -12,8 +12,19 @@ import App from 'components/App';
 
 import { version } from '../package';
 import markdownNotes from './componentNote1.md';
+import withVersion from '../addons/index';
 
-addDecorator(withInfo); // global
+// global
+addDecorator(withInfo);
+
+// see config.js
+// addDecorator(withVersion);
+// addParameters({
+//   version
+// });
+// see config.js
+
+// global
 
 // const group = `Component (v${version})|`;
 // const group = 'Components|';
@@ -23,9 +34,7 @@ storiesOf(group + 'Sum', module)
   // .addDecorator(withInfo)
   .add('2+2 (default)', () => <Sum onClick={action('clicked')} />, {
     notes: "Hello",
-    myAddon: {
-      data: 'this data is passed to the addon',
-    }
+    // version, // also works, but global is better.
   })
   .add('custom numbers', () => <Sum a={3} b={3} />)
   .add('negative numbers', () => <Sum a={3} b={-2} />)

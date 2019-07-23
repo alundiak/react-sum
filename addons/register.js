@@ -4,9 +4,12 @@ import addons from '@storybook/addons';
 import { STORY_CHANGED } from '@storybook/core-events';
 
 class MyPanel extends React.Component {
+  state = { value: '' };
+
   onSomeAction = text => {
-      console.log(text)
-    // do something with the passed data
+    this.setState({
+      value: text
+    });
   };
   onStoryChange = id => {
     console.log(id)
@@ -26,16 +29,19 @@ class MyPanel extends React.Component {
 
   render() {
     const { active } = this.props;
+    const { value } = this.state;
 
-    return active ? <div className="lundiak-version" /> : null;
+    return active ? <div className="custom-addon-version" >v{value}</div> : null;
+    // bright example how ReactJS code is slow. First shows "v", then number.
   }
 }
 
 // Register the addon with a unique name.
 addons.register('VERSION', api => {
+  // console.log(api)
   // Also need to set a unique name to the panel.
   addons.addPanel('VERSION/panel', {
-    title: 'My Version Addon',
+    title: 'Version',
     render: ({ active, key }) => <MyPanel key={key} api={api} active={active} />,
   });
 });
