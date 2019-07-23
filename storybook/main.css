@@ -18,18 +18,5 @@
   background: url(static/media/equal.f9c48ab1.png) center;
 }
 
-.app {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  border: 1px solid green;
-}
-.app > div {
-  margin-right: 10px;
-}
-.app-only {
-  color: green;
-}
-
 
 /*# sourceMappingURL=main.css.map*/
