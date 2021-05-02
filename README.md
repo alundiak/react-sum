@@ -54,22 +54,19 @@ class MyApp extends Component {
 export default MyApp;
 ```
 
-
-## 2021 Bootstrapped with Create React App using `yarn`
-
-TBD npm => yarn
-
 ## Development
+
+**2021** Re-Bootstrap with "Create React App". Now using `yarn`.
 
 ### Installation
 
-- `npm install`
 - `yarn install`
+- `npm install`
 
 ### Tests
 
-- `npm test`
 - `yarn test`
+- `npm test`
 
 ### Style Guide vs. Documentation
 
@@ -82,18 +79,19 @@ TBD npm => yarn
 2021 setup.
 - https://storybook.js.org/docs/react/get-started/install
 
+
+- `sb init --type react` (goes kinda better with latest setup for `.storybook` (main.js + preview.js)). Goes as "React app".
+- `sb init --type react_project` (goes kinda better with latest setup for `.storybook` (main.js + preview.js)). Goes as "React library".
 - `sb init --type react_scripts` (goes kinda wrong with deprecated setup for `.storybook` (addons.js + config.js))
-- `sb init --type react` (goes kinda better with latest setup for `.storybook` (main.js + preview.js))
 
 To run locally:
 
-- `npm run storybook` | TBD
-- `yarn storybook` | TBD
+- `yarn storybook`
+- `npm run storybook`
 
 To build for bundle:
-- `npm run build-storybook`
 - `yarn build-storybook`
-
+- `npm run build-storybook`
 
 **Storybook Addons**
 - https://github.com/tuchk4/storybook-readme
@@ -103,7 +101,7 @@ To build for bundle:
 - https://css-tricks.com/front-end-documentation-style-guides-and-the-rise-of-mdx/
 
 
-### Publish new version
+### Publish new version - TBD
 
 `npm version patch`
 
@@ -115,7 +113,7 @@ Note: it will run:
 - Using `patch` will increase SemVer patch only.
 
 
-## Resources
+## Resources - TBD
 
 About npm `main`, `browser` and `module`, `jsnext:main`, `esm`, `esnext`(2017)
 - https://webpack.js.org/configuration/resolve/#resolvemainfields
@@ -144,24 +142,6 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - HTML [math](https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math) tag [isn't supported](https://caniuse.com/#search=mathml) by Chrome, and works only in Firefox and Safari.
 - http://eyeasme.com/Joe/MathML/MathML_browser_test.html
 
-### Testing
-  - https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
-  - https://raygun.com/blog/mocha-vs-jasmine-chai-sinon-cucumber/
-
-### Jest + Enzyme
-- https://jestjs.io/docs/en/tutorial-react
-- https://blog.bitsrc.io/how-to-test-react-components-with-jest-and-enzyme-in-depth-145fcd06b90
-
-### Cucumber for JavaScript
-- [`cucumber`](https://github.com/cucumber/cucumber-js), since 2011, 979 commits
-  - [`react-cucumber`](https://github.com/pzavolinsky/react-cucumber), since 2017, 16 commits
-  - [`jest-cucumber`](https://github.com/bencompton/jest-cucumber), since 2018, 153 commits
-    - https://github.com/bencompton/jest-cucumber/tree/master/examples
-    - https://codeburst.io/react-behavior-driven-development-bdd-535afd364e5f
-    - https://github.com/stlouisweb/react-cucumber-base - good examples
-
-
-
 ## TODO
 
 - JSS - https://cssinjs.org/
@@ -178,7 +158,8 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - Then AppVeyor, the slowest for now.
 - Fossa just for licence verification.
 
-### CI related resources
+**CI related resources**:
+
 - https://circleci.com/blog/creating-automated-build-test-and-deploy-workflows-for-orbs-part-2/
 
 

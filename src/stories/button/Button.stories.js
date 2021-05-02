@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from './Button';
 
-export default {
+const BtnObject = {
   // https://github.com/storybookjs/storybook/blob/master/MIGRATION.md#removed-hierarchy-separators
   // https://github.com/storybookjs/storybook/blob/master/MIGRATION.md#simplified-hierarchy-separators
   title: 'Storybook Examples/Button(2)',
@@ -11,6 +11,8 @@ export default {
     backgroundColor: { control: 'color' },
   },
 };
+
+export default BtnObject;
 
 const Template = (args) => <Button {...args} />;
 

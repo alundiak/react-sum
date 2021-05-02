@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import parse from 'ascii-math';
+// import parse from 'ascii-math';
 import DangMath from './DangMath';
 
 import style from '../css/ReactSum.module.css';
