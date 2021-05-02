@@ -51,7 +51,7 @@ export default env => {
                 // './src/css/with-alias.css'
             ],
             Sum: ['./src/components/Sum.jsx'], // should I include react-sum.less/css?
-            // DangMath: ['./src/components/DangMath.jsx'], // because in prodBuild, Sum.jsx doesn't import/bundle it by itself. wierd. TOO?
+            // DangMath: ['./src/components/DangMath.jsx'], // because in prodBuild, Sum.jsx doesn't import/bundle it by itself. weird. TOO?
             SumWithCssAlias: ['./src/components/SumWithCssAlias.jsx'/* , './src/css/with-alias.css' */]
         },
 
@@ -198,7 +198,7 @@ export default env => {
                     // More advanced usage (to fix CSS url() issue)
                     use: {
                         loader: 'url-loader', // converts any image into base64 and inject into JSX/HTML.
-                        options:{
+                        options: {
                             fallback: 'file-loader',
                             name: ifDev('[name].[ext]', '[hash].[ext]'),
                             outputPath: 'images',

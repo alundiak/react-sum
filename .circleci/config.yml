@@ -49,8 +49,13 @@ jobs:
 
       # run tests!
       # - run: npm test
-      - run: yarn test # since 2021
+      - run: yarn test --verbose # since 2021
 
+      #
+      # Deploy to GitHub Pages
+      - run: yarn deploy
+      #
+      #
       # Storybook Static build
       # - run: npm run build-storybook
       # - run: yarn build-storybook # since 2021 - NOT YET WORKING - commenting temp.

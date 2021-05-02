@@ -1,4 +1,0 @@
-- What to test?
-- Why to test?
-- How to run?
-- How to rely?

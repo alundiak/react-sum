@@ -12,7 +12,6 @@ Experiment related to Component creation process and usage of tools, such as: np
 [![CircleCI](https://circleci.com/gh/alundiak/react-sum/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/github/alundiak/react-sum?branch=master)
 [![SemaphoreCI 2.0 Build Status](https://alundiak.semaphoreci.com/badges/react-sum/branches/master.svg?key=ef261846-bd66-4474-be5c-e2daebc35350)](https://alundiak.semaphoreci.com/projects/react-sum)
 [![AppVeyorCI](https://ci.appveyor.com/api/projects/status/selytkekkws81f3v?svg=true)](https://ci.appveyor.com/project/alundiak/react-sum)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_small)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_shield)
 
 
@@ -158,6 +157,15 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - Styled Component?
 - ReactCSS - https://github.com/casesandberg/reactcss
 - How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.
+
+## CI platform notes
+
+- The fastest seems to be CircleCI. Does have extensive API/documentation. But getting badge was always a kind of problem.
+- Then TravisCI.
+- Then SemaphoreCI
+- Old semaphoreci v1 max. supported NodeJS v10.x
+- Then AppVeyor, the slowest for now.
+- Fossa ?
 
 
 ## License

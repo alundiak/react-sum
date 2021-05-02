@@ -25,7 +25,7 @@ const Main = () => (
 
 ReactDOM.render(
   <React.StrictMode>
-    <Main />
+    <Main className="main-container" />
   </React.StrictMode>,
   document.getElementById('react-sum')
 );

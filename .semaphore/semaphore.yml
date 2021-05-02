@@ -129,7 +129,7 @@ blocks:
             # - npm run prodBuild
             - yarn build
             # - npm test
-            - yarn test
+            - yarn test --verbose
         # - name: Server Tests
         #   commands:
         #     - cd src/server

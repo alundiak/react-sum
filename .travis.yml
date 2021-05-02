@@ -8,7 +8,8 @@ script:
   # - "npm run prodBuild"
   - "yarn build"
   # - "npm test"
-  - "yarn test"
+  - "yarn test --verbose"
+  # - "yarn deploy" # MAYBE
   # - "npm run build-storybook"
   # - "yarn build-storybook" # TBD
   #

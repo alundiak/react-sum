@@ -27,4 +27,5 @@ build_script:
 test_script:
   - node --version && npm --version
   # - npm test
-  - yarn test
+  - yarn test --verbose
+  # - yarn deploy # MAYBE
