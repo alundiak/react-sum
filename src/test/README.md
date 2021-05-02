@@ -16,6 +16,8 @@ Since May-2021, migrated from Jest/Enzyme to Jest + `@testing-library/react` app
 - `features` folder contains Cucumber `*.feature` files, with described flows.
 - `steps` folder contains `*.steps.js` files which implement logic, based on features.
 
++ https://charles-stover.medium.com/behavior-driven-react-development-with-cucumber-faf596d9d71b
+
 ## But still outstanding questions:
 
 - What to test?

@@ -1,0 +1,3 @@
+// from `sb init --type react_scripts`
+import '@storybook/addon-actions/register';
+import '@storybook/addon-links/register';

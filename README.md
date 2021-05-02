@@ -79,10 +79,21 @@ TBD npm => yarn
 - [Writing Storybook Stories](https://storybook.js.org/docs/basics/writing-stories/)
 - [Storybook examples](https://github.com/storybookjs/storybook/tree/next/examples)
 
+2021 setup.
+- https://storybook.js.org/docs/react/get-started/install
+
+- `sb init --type react_scripts` (goes kinda wrong with deprecated setup for `.storybook` (addons.js + config.js))
+- `sb init --type react` (goes kinda better with latest setup for `.storybook` (main.js + preview.js))
+
 To run locally:
 
-- npm run storybook | TBD
-- yarn storybook | TBD
+- `npm run storybook` | TBD
+- `yarn storybook` | TBD
+
+To build for bundle:
+- `npm run build-storybook`
+- `yarn build-storybook`
+
 
 **Storybook Addons**
 - https://github.com/tuchk4/storybook-readme
@@ -162,10 +173,13 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 
 - The fastest seems to be CircleCI. Does have extensive API/documentation. But getting badge was always a kind of problem.
 - Then TravisCI.
-- Then SemaphoreCI
-- Old semaphoreci v1 max. supported NodeJS v10.x
+- Then SemaphoreCI.
+- Old semaphoreci v1 max. supported NodeJS v10.x/
 - Then AppVeyor, the slowest for now.
-- Fossa ?
+- Fossa just for licence verification.
+
+### CI related resources
+- https://circleci.com/blog/creating-automated-build-test-and-deploy-workflows-for-orbs-part-2/
 
 
 ## License
