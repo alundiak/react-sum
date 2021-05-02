@@ -8,19 +8,23 @@ init:
 
 environment:
   matrix:
-    - nodejs_version: "10"
-    - nodejs_version: "12"
+    - nodejs_version: "14"
+    - nodejs_version: "15"
+    - nodejs_version: "16"
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm ci
+  # - npm ci
+  - yarn install
 
   # https://www.appveyor.com/docs/build-configuration/#configuring-build
 build: off
 
 build_script:
-  - npm run devBuild
+  # - npm run devBuild
+  - yarn build
 
 test_script:
   - node --version && npm --version
-  - npm test
+  # - npm test
+  - yarn test

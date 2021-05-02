@@ -1,12 +1,17 @@
 language: node_js
 
 node_js:
-  - "12.4.0" # current
+  - "16.0.0" # latest in May-2021
+  # - "12.4.0" # current
   # - "10.16.0" # stable # commented to compare all CI instances with one NodeJS instance only.
 script:
-  - "npm run prodBuild"
-  - "npm test"
-  - "npm run build-storybook"
+  # - "npm run prodBuild"
+  - "yarn build"
+  # - "npm test"
+  - "yarn test"
+  # - "npm run build-storybook"
+  - "yarn build-storybook" # TBD
+
 # notifications:
 #  irc:
 #    channels:
