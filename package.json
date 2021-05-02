@@ -35,9 +35,9 @@
     "ascii-math": "^2.0.0"
   },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "prop-types": "^15.7.2"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -49,14 +49,14 @@
     "@babel/register": "^7.5.5",
     "@mdx-js/loader": "^1.1.0",
     "@mdx-js/mdx": "^1.1.0",
-    "@storybook/addon-actions": "^5.2.0-beta.7",
-    "@storybook/addon-docs": "^5.2.0-beta.7",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-docs": "^6.2.9",
     "@storybook/addon-info": "^5.2.0-beta.7",
     "@storybook/addon-links": "^5.2.0-beta.7",
-    "@storybook/addon-notes": "^5.2.0-beta.7",
-    "@storybook/addon-storysource": "^5.2.0-beta.7",
+    "@storybook/addon-notes": "^4.1.18",
+    "@storybook/addon-storysource": "^6.2.9",
     "@storybook/addons": "^5.2.0-beta.7",
-    "@storybook/react": "^5.2.0-beta.7",
+    "@storybook/react": "^6.2.9",
     "@storybook/source-loader": "^5.2.0-alpha.14",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
@@ -104,7 +104,7 @@
   "bugs": {
     "url": "https://github.com/alundiak/react-sum/issues"
   },
-  "homepage": "https://github.com/alundiak/react-sum#readme",
+  "homepage": "https://alundiak.github.io/react-sum",
   "author": "Andrii Lundiak",
   "license": "ISC"
 }
