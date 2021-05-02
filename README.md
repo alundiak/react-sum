@@ -19,8 +19,8 @@ Experiment related to Component creation process and usage of tools, such as: np
 
 ### Installation
 
-- `npm install --save @lundiak/react-sum`
 - `yarn add @lundiak/react-sum`
+- `npm install --save @lundiak/react-sum`
 
 Import the component where you want to use it, and you ready to use it in `render()`.
 
@@ -56,7 +56,7 @@ export default MyApp;
 
 ## Development
 
-**2021** Re-Bootstrap with "Create React App". Now using `yarn`.
+**2021** Re-Bootstrap with "Create React App". Now using `yarn`. `npm` can be used as fallback approach. But need to verify CI to be sure.
 
 ### Installation
 
