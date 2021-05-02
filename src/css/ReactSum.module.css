@@ -1,0 +1,17 @@
+.sum {
+  border: 1px green dashed;
+  margin: 3px;
+  padding: 3px;
+}
+
+/* img { */
+.sum img {
+  width: 50px;
+}
+
+/* .equal { */
+.sum .equal {
+  width: 58px;
+  height: 32px;
+  background: url("../images/equal.png") center;
+}

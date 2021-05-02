@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'components/App';
-import { Sum } from 'components/App';
-import { SumWithCssAlias } from 'components/App';
-import 'css/main.less';
+import './index.css';
+import App, { Sum, SumWithCssAlias } from './App';
+import reportWebVitals from './reportWebVitals';
 
 const Main = () => (
   <React.Fragment>
@@ -24,8 +23,14 @@ const Main = () => (
   </React.Fragment>
 );
 
-ReactDOM.render(<Main />, document.getElementById('app'));
+ReactDOM.render(
+  <React.StrictMode>
+    <Main />
+  </React.StrictMode>,
+  document.getElementById('react-sum')
+);
 
-if (module.hot) {
-  module.hot.accept();
-}
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

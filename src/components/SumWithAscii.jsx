@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import parse from 'ascii-math';
 import DangMath from './DangMath';
 
-import '../css/react-sum.less';
+import style from '../css/ReactSum.module.css';
 
 class SumWithAscii extends React.Component {
     state = {
@@ -16,50 +16,50 @@ class SumWithAscii extends React.Component {
         const result = a + b;
         const { useASCII } = this.props;
 
-        const res = parse('sum(a+b)=c');
+        // const res = parse('sum(a+b)=c');
 
         //
         // NOT VALID ELEMENT, not rendered
         //
-        const mathElement = res.toElement(); // this seems to be valid DOM/HTML element, but it's not valid JSX/React element.
-        console.log(mathElement, typeof mathElement, React.isValidElement(mathElement)); // not valid
-        console.log(<mathElement />, typeof <mathElement />, React.isValidElement(<mathElement />)); // valid but not rendered
-        const MathML = () => (
-            <div>
-                {mathElement}
-            </div>
-        );
+        // const mathElement = res.toElement(); // this seems to be valid DOM/HTML element, but it's not valid JSX/React element.
+        // console.log(mathElement, typeof mathElement, React.isValidElement(mathElement)); // not valid
+        // console.log(<mathElement />, typeof <mathElement />, React.isValidElement(<mathElement/ >)); // valid but not rendered
+        // const MathML = () => (
+        //     <div>
+        //         {mathElement}
+        //     </div>
+        // );
 
-        console.log(MathML, typeof MathML, React.isValidElement(MathML));
-        console.log(<MathML />, typeof <MathML />, React.isValidElement(<MathML />));
+        // console.log(MathML, typeof MathML, React.isValidElement(MathML));
+        // console.log(<MathML />, typeof <MathML />, React.isValidElement(<MathML/ >));
 
-        console.log(mathElement, typeof mathElement, React.isValidElement(mathElement));
-        console.log(Symbol(mathElement), typeof Symbol(mathElement), React.isValidElement(Symbol(mathElement)));
+        // console.log(mathElement, typeof mathElement, React.isValidElement(mathElement));
+        // console.log(Symbol(mathElement), typeof Symbol(mathElement), React.isValidElement(Symbol(mathElement)));
 
         //
         // VALID ELEMENT, but not rendered
         //
-        const DivMathElem = React.createElement('div', null, mathElement);
-        console.log(DivMathElem, typeof DivMathElem, React.isValidElement(DivMathElem));
+        // const DivMathElem = React.createElement('div', null, mathElement);
+        // console.log(DivMathElem, typeof DivMathElem, React.isValidElement(DivMathElem));
 
-        const ClonedElem = React.cloneElement(DivMathElem);
-        console.log(ClonedElem, typeof ClonedElem, React.isValidElement(ClonedElem));
+        // const ClonedElem = React.cloneElement(DivMathElem);
+        // console.log(ClonedElem, typeof ClonedElem, React.isValidElement(ClonedElem));
 
         //
         // VALID ELEMENT and rendered
         //
 
-        const Elem = (<div><span>abc</span></div>);
-        console.log(Elem, typeof Elem, React.isValidElement(Elem));
+        // const Elem = (<div><span>abc</span></div>);
+        // console.log(Elem, typeof Elem, React.isValidElement(Elem));
 
-        const rawJsxElement = (<math title="sum(10+133)=c"><mo>&sum;</mo><mrow><mo>(</mo><mn>10</mn><mo>+</mo><mn>133</mn><mo>)</mo></mrow><mo>=</mo><mi>c</mi></math>);
+        // const rawJsxElement = (<math title="sum(10+133)=c"><mo>&sum;</mo><mrow><mo>(</mo><mn>10</mn><mo>+</mo><mn>133</mn><mo>)</mo></mrow><mo>=</mo><mi>c</mi></math>);
         // Content taken from res.toString()
-        console.log(rawJsxElement, typeof rawJsxElement, React.isValidElement(rawJsxElement));
+        // console.log(rawJsxElement, typeof rawJsxElement, React.isValidElement(rawJsxElement));
 
-        console.log(DangMath, typeof DangMath, React.isValidElement(DangMath));
+        // console.log(DangMath, typeof DangMath, React.isValidElement(DangMath));
 
         return (
-            <div className="sum">
+            <div className={style.sum}>
                 {useASCII ? (
                     <React.Fragment>
                         {/* <MathML /> */}

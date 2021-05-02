@@ -1,3 +1,6 @@
+#
+# My old initial version
+#
 node_modules
 bower_components
 coverage
@@ -10,5 +13,28 @@ dist/report.html
 
 # In fact it's dist-like folder after Storybook reload.
 # Ideal case to have it ignored, and NodeJS/Apache folder root to be used instead.
-dist
 storybook-static
+
+#
+# Pieces from CRA
+#
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/.pnp
+.pnp.js
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

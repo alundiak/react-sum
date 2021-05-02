@@ -1,8 +1,10 @@
 # React Sum
 
+**NOTE:** component is under re-development, so new upcoming versions might be breaking-change-like.
+
 Experimental ReactJS component to show sum of 2 numbers.
 
-Experiment related to Component creation process and usage of tolls, such as: npm, ESLINT, Webpack, Babel, Create React App, React Scripts, Storybook, Jest, Enzyme, Cucumber and CI tools.
+Experiment related to Component creation process and usage of tools, such as: npm/yarn, ESLINT, Webpack, Babel, Create React App, CSS Modules (migrated from LESS) React Scripts, Storybook, Jest, Enzyme, Cucumber and CI tool Circle CI.
 
 [![TravisCI](https://travis-ci.org/alundiak/react-sum.svg?branch=master)](https://travis-ci.org/alundiak/react-sum)
 [![CircleCI](https://circleci.com/gh/alundiak/react-sum.svg?style=svg)](https://circleci.com/gh/alundiak/react-sum)
@@ -16,21 +18,14 @@ Experiment related to Component creation process and usage of tolls, such as: np
 
 ### Installation
 
-`npm install --save @lundiak/react-sum`
+- `npm install --save @lundiak/react-sum`
+- `yarn add @lundiak/react-sum`
 
 Import the component where you want to use it, and you ready to use it in `render()`.
 
-Approach 1:
+Approach 1 `import ReactSum from '@lundiak/react-sum'` for `<ReactSum.Sum />` usage.
 
-`import ReactSum from '@lundiak/react-sum'`
-
-`<ReactSum.Sum />`
-
-Approach 2:
-
-`import { Sum } from '@lundiak/react-sum';`
-
-`<Sum />`
+Approach 2 `import { Sum } from '@lundiak/react-sum';` for `<Sum />` usage.
 
 ### Props
 
@@ -39,11 +34,11 @@ Approach 2:
 | a  | a |      2       |
 | b  | b |      2       |
 
-### Example
+### Usage example
 
-Your file `MyApp.jsx`:
+How to add to your file `MyApp.jsx`:
 
-```
+```jsx
 import React, { Component } from 'react';
 import { Sum } from '@lundiak/react-sum';
 
@@ -59,15 +54,21 @@ export default MyApp;
 ```
 
 
+## 2021 Bootstrapped with Create React App using `yarn`
+
+TBD npm => yarn
+
 ## Development
 
 ### Installation
 
-`npm install`
+- `npm install`
+- `yarn install`
 
 ### Tests
 
-`npm test`
+- `npm test`
+- `yarn test`
 
 ### Style Guide vs. Documentation
 
@@ -79,9 +80,8 @@ export default MyApp;
 
 To run locally:
 
-```
-npm run storybook
-```
+- npm run storybook | TBD
+- yarn storybook | TBD
 
 **Storybook Addons**
 - https://github.com/tuchk4/storybook-readme
