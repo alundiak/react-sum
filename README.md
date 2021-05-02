@@ -7,9 +7,14 @@ Experimental ReactJS component to show sum of 2 numbers.
 Experiment related to Component creation process and usage of tools, such as: npm/yarn, ESLINT, Webpack, Babel, Create React App, CSS Modules (migrated from LESS) React Scripts, Storybook, Jest, Enzyme, Cucumber and CI tool Circle CI.
 
 [![TravisCI](https://travis-ci.org/alundiak/react-sum.svg?branch=master)](https://travis-ci.org/alundiak/react-sum)
+
 [![CircleCI](https://circleci.com/gh/alundiak/react-sum.svg?style=svg)](https://circleci.com/gh/alundiak/react-sum)
+
+[![Build Status](https://alundiak.semaphoreci.com/badges/react-sum/branches/master.svg?key=ef261846-bd66-4474-be5c-e2daebc35350)](https://alundiak.semaphoreci.com/projects/react-sum)
 [![SemaphoreCI](https://semaphoreci.com/api/v1/alundiak/react-sum/branches/master/badge.svg)](https://semaphoreci.com/alundiak/react-sum)
+
 [![AppVeyorCI](https://ci.appveyor.com/api/projects/status/selytkekkws81f3v?svg=true)](https://ci.appveyor.com/project/alundiak/react-sum)
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_small)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_shield)
 

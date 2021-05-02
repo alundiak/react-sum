@@ -10,8 +10,8 @@ script:
   # - "npm test"
   - "yarn test"
   # - "npm run build-storybook"
-  - "yarn build-storybook" # TBD
-
+  # - "yarn build-storybook" # TBD
+  #
 # notifications:
 #  irc:
 #    channels:
