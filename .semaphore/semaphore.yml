@@ -29,7 +29,7 @@ blocks:
         - name: NODE_ENV
           value: test
         - name: CI
-          value: 'true'
+          value: "true"
 
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
@@ -55,13 +55,16 @@ blocks:
             # case of a cache miss. In case of a cache hit, npm install will
             # run very fast.
             # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             # - npm install
-            - npm ci
+            # - npm ci
+            - yarn install # since 2021
 
             # Store the latest version of node modules in cache to reuse in
             # further blocks:
-            - cache store client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
+            # - cache store client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
+            - cache store client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock) node_modules # since 2021
 
         # Second parallel job:
         # Commented by Andrii L
@@ -78,7 +81,7 @@ blocks:
         - name: NODE_ENV
           value: test
         - name: CI
-          value: 'true'
+          value: "true"
       prologue:
         commands:
           - checkout
@@ -90,10 +93,13 @@ blocks:
           commands:
             # - cd src/client
             # At this point we can assume 100% cache hit rate of node modules:
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
 
             # Run task as defined in package.json:
-            - npm run lint
+            # - npm run lint
+            - yarn eslint
+
         # Commented by Andrii L
         # - name: Server Lint
         #   commands:
@@ -107,7 +113,7 @@ blocks:
         - name: NODE_ENV
           value: test
         - name: CI
-          value: 'true'
+          value: "true"
       prologue:
         commands:
           - checkout
@@ -118,9 +124,12 @@ blocks:
         - name: Client Tests
           commands:
             # - cd src/client
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
-            - npm run prodBuild
-            - npm test
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # - npm run prodBuild
+            - yarn build
+            # - npm test
+            - yarn test
         # - name: Server Tests
         #   commands:
         #     - cd src/server
@@ -163,14 +172,13 @@ blocks:
   #           - npm run migrate:up
   #           - npm run test:e2e
 
-
   - name: Builds
     task:
       env_vars:
         - name: NODE_ENV
           value: build
         - name: CI
-          value: 'true'
+          value: "true"
       prologue:
         commands:
           - checkout
@@ -180,6 +188,13 @@ blocks:
       jobs:
         - name: Prod Build
           commands:
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
-            - npm run prodBuild
-            - npm run build-storybook
+            # - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            #
+            # - npm run prodBuild
+            - yarn build
+            #
+            # - yarn deploy # gh-pages in fact takes build/ folder and publish under gh-pages branch. Should include also /storybook
+            #
+            # - npm run build-storybook
+            # - yarn build-storybook # TBD

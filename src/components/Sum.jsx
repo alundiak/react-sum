@@ -31,6 +31,11 @@ class Sum extends React.Component {
                     <img src={sigmaImg} alt="sigma" />
                     {/* <h3>{a} + {b} <div className={style['.sum .equal']}></div> {result}</h3> */}
                     <h3>{a} + {b} <div className={style.equal}></div> {result}</h3>
+                    {/*
+                    Gives:
+                    .ReactSum_sum__3UcGT .ReactSum_equal__28Cxi
+                    So we can rely on CSS classes hierarchy (".sum .equal") but pass ONLY last css class (".equal").
+                     */}
                 </React.Fragment>
             );
         }

@@ -22,25 +22,31 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            # - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }} # MAYBE ?? since I use/rely on Yarn now.
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
       # - run: npm install
-      - run: npm ci
-      - run: npm run prodBuild
+      # - run: npm ci
+      - run: yarn install # since 2021
+      # - run: npm run prodBuild
+      - run: yarn build # since 2021
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          # key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }} # MAYBE ?? since I use/rely on Yarn now.
 
       # run tests!
-      - run: npm test
+      # - run: npm test
+      - run: yarn test # since 2021
 
       # Storybook Static build
-      - run: npm run build-storybook
-
-      # in future
+      # - run: npm run build-storybook
+      # - run: yarn build-storybook # since 2021 - NOT YET WORKING - commenting temp.
+      #
+      # in future - in 2021 still future :)
       #- run: npm version patch
       #- run: npm publish
