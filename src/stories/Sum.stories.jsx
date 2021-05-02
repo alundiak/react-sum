@@ -10,8 +10,11 @@ const version = '1.3.0';
 
 addDecorator(withInfo); // global
 
-storiesOf(`Sum v${version}`, module)
-  .add('2+2 (default)', () => <Sum onClick={action('clicked')} />)
+storiesOf(`Components/Sum v${version}`, module)
+  .add('2+2 (default)', () => <Sum onClick={action('clicked')} />, {
+    notes: "Hello",
+    // version: '1.3.0', // also works, but global is better.
+  })
   .add('custom numbers', () => <Sum a={3} b={3} />)
   .add('negative numbers', () => <Sum a={3} b={-2} />)
   .add('negative numbers (=> 0)', () => <Sum a={3} b={-3} />)
