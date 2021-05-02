@@ -11,6 +11,8 @@ jobs:
       branches:
         only:
           - master
+        ignore:
+          - gh-pages # https://discuss.circleci.com/t/excluding-a-branch-from-ci/17811/3
 
     docker:
       # specify the version you desire here
