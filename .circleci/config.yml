@@ -53,7 +53,8 @@ jobs:
 
       #
       # Deploy to GitHub Pages
-      - run: yarn deploy
+      # - run: yarn deploy
+      # requires git email and name on remote server. Need to run setup-like.sh script beforehand.
       #
       #
       # Storybook Static build
