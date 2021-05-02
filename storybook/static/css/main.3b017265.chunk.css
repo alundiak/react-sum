@@ -54,5 +54,26 @@
   padding: 12px 24px;
 }
 
+.WithAlias_with-alias__HdOt8 {
+  color: blue;
+  border: 1px blue dotted;
+}
+#react-sum {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+          justify-content: center;
+  width: 100%;
+  border: 1px solid green;
+}
 
-/*# sourceMappingURL=main.a9d8aa09.chunk.css.map*/
+#react-sum > div {
+  margin-right: 10px;
+}
+
+/* .app-only {
+  color: green;
+} */
+
+
+/*# sourceMappingURL=main.3b017265.chunk.css.map*/
