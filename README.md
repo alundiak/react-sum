@@ -68,38 +68,9 @@ export default MyApp;
 - `yarn test`
 - `npm test`
 
-### Style Guide vs. Documentation
+### Storybook
 
-**Storybook**
-
-- [Guide for setup](https://storybook.js.org/docs/guides/guide-react/)
-- [Writing Storybook Stories](https://storybook.js.org/docs/basics/writing-stories/)
-- [Storybook examples](https://github.com/storybookjs/storybook/tree/next/examples)
-
-2021 setup.
-- https://storybook.js.org/docs/react/get-started/install
-
-
-- `sb init --type react` (goes kinda better with latest setup for `.storybook` (main.js + preview.js)). Goes as "React app".
-- `sb init --type react_project` (goes kinda better with latest setup for `.storybook` (main.js + preview.js)). Goes as "React library".
-- `sb init --type react_scripts` (goes kinda wrong with deprecated setup for `.storybook` (addons.js + config.js))
-
-To run locally:
-
-- `yarn storybook`
-- `npm run storybook`
-
-To build for bundle:
-- `yarn build-storybook`
-- `npm run build-storybook`
-
-**Storybook Addons**
-- https://github.com/tuchk4/storybook-readme
-- https://www.npmjs.com/package/@storybook/addon-storysource (alternative to [storybook-addon-jsx](https://www.npmjs.com/package/storybook-addon-jsx))
-
-**Docz** and **Styleguidist** and other
-- https://css-tricks.com/front-end-documentation-style-guides-and-the-rise-of-mdx/
-
+=> [Storybook.md](./.storybook/README.md)
 
 ### Publish new version - TBD
 
@@ -133,34 +104,31 @@ About rename `.babelrc` to `babel.config.js` and how this fix `import`-ing issue
 - https://github.com/babel/babel/issues/8711
 
 
-### Webpack related
-- https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
+## TODO
 
-
-### Math related
+**Math related**:
 - https://github.com/cezary/react-math + https://github.com/ForbesLindesay/ascii-math
 - HTML [math](https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math) tag [isn't supported](https://caniuse.com/#search=mathml) by Chrome, and works only in Firefox and Safari.
 - http://eyeasme.com/Joe/MathML/MathML_browser_test.html
 
-## TODO
 
+**Tech Stack specific**:
 - JSS - https://cssinjs.org/
 - Styled Component?
 - ReactCSS - https://github.com/casesandberg/reactcss
 - How to convert valid DOM element of `math` tag into JSX/React Valid element? [This](https://medium.com/javascript-inside/transforming-elements-in-react-8e411c0f1bba) maybe be helpful.
+- npm/yarn, Webpack related https://itnext.io/how-to-package-your-react-component-for-distribution-via-npm-d32d4bf71b4f
 
-## CI platform notes
+
+## CI/CD
 
 - The fastest seems to be CircleCI. Does have extensive API/documentation. But getting badge was always a kind of problem.
+  - https://circleci.com/blog/creating-automated-build-test-and-deploy-workflows-for-orbs-part-2/
 - Then TravisCI.
 - Then SemaphoreCI.
 - Old semaphoreci v1 max. supported NodeJS v10.x/
 - Then AppVeyor, the slowest for now.
 - Fossa just for licence verification.
-
-**CI related resources**:
-
-- https://circleci.com/blog/creating-automated-build-test-and-deploy-workflows-for-orbs-part-2/
 
 
 ## License
