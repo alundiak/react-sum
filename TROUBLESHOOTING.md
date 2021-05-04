@@ -56,6 +56,17 @@ Think about `peerDependencies`
 Fix up babel-loader 8.2.2 from latest @storybook packages and v8.1.0 from react-scripts.
 Currently temp solution is manual devDependency as for 8.1.0
 
+TBD:
+
+```
+➜  react-sum git:(master) npm outdated
+Package                            Current         Wanted  Latest  Location                                  Depended by
+@storybook/addon-info        6.0.0-alpha.2  6.0.0-alpha.2  5.3.21  node_modules/@storybook/addon-info        react-sum
+@storybook/addon-notes       6.0.0-alpha.6  6.0.0-alpha.6  5.3.21  node_modules/@storybook/addon-notes       react-sum
+@testing-library/user-event         12.8.3         12.8.3  13.1.8  node_modules/@testing-library/user-event  react-sum
+babel-loader                         8.1.0          8.1.0   8.2.2  node_modules/babel-loader                 react-sum
+```
+
 
 ## Problem 5
 
