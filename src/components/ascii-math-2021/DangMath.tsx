@@ -14,8 +14,6 @@ export const DangMath = (props: DangMathProps) => {
   const res = parse(`sum(${a}+${b})=${c}`);
   const mathML = res.toString();
 
-  /* eslint react/self-closing-comp: 0 */
-  /* eslint react/no-danger: 0 */
   return (
     // <div className={style['with-ascii']} dangerouslySetInnerHTML={{ __html: mathML }}></div>
     // with-ascii just a css class with no implementation
