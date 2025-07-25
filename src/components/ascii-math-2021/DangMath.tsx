@@ -20,9 +20,6 @@ export const DangMath = (props: DangMathProps) => {
     // <div className={style['with-ascii']} dangerouslySetInnerHTML={{ __html: mathML }}></div>
     // with-ascii just a css class with no implementation
     <>
-      <h2>
-        <code>ascii-math</code> - 2021 approach
-      </h2>
       <div
         className={"with-ascii"}
         dangerouslySetInnerHTML={{ __html: mathML }}

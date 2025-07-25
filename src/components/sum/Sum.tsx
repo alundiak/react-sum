@@ -4,15 +4,9 @@ import sigmaImg from "../../assets/images/sigma.png"; // using imported image is
 
 import style from "./Sum.module.css";
 import { DangMath } from "../ascii-math-2021/DangMath";
+import type { SumProps } from "./common";
 
-interface SumPropTypes {
-  a: number;
-  b: number;
-  useImages?: boolean;
-  useASCII?: boolean;
-}
-
-export const Sum: FC<SumPropTypes> = (props) => {
+export const Sum: FC<SumProps> = (props) => {
   const getPieceToRender = () => {
     const { a, b, useImages, useASCII } = props;
     const result = a + b;
@@ -48,6 +42,10 @@ export const Sum: FC<SumPropTypes> = (props) => {
       // TODO use dynamic import()
       pieceToRender = (
         <React.Fragment>
+          <h1>Sum</h1>
+          <span>
+            w <code>ascii-math</code> (2021 approach)
+          </span>
           <DangMath a={a} b={b} c={result} />
         </React.Fragment>
       );

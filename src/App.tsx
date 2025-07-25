@@ -1,18 +1,18 @@
 import "./App.css";
 
 import { Sum } from "./components/sum/Sum";
-// import { SumWithCssAlias } from "./components/SumWithCssAlias";
-
-// TODO rework in JSS with ability to receive styles from props.
-// import '../css/app.less';
+import { SumWithCssAlias } from "./components/sum/SumWithCssAlias";
+import { SumWithAscii } from "./components/sum/SumWithAscii";
 
 export { Sum }; // for <Sum /> usage
-// export { SumWithCssAlias }; // for <SumWithCssAlias /> usage
+export { SumWithCssAlias }; // for <SumWithCssAlias /> usage
+export { SumWithAscii }; // for <SumWithAscii /> usage
 
-// Do I need explicit export for further usage by external packages?
+// This needed for further usage by consumer code as <App.*** />
 const App = {
-  Sum,
-  // SumWithCssAlias,
+  Sum, // for <App.Sum /> usage
+  SumWithCssAlias, // for <App.SumWithCssAlias /> usage
+  SumWithAscii, // for <App.SumWithAscii /> usage
 };
 
-export default App; // for <App.Sum />, <App.SumWithCssAlias /> usage
+export default App;

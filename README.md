@@ -88,6 +88,10 @@ export const MyApp = () => {
   - Also maybe will replace by [asciimath-parser](https://github.com/widcardw/asciimath-parser) with [KaTeX](https://katex.org/) aka [katex](https://github.com/KaTeX)
     - but KaTeX brings lot of fonts into `dist` after `npm run build`
 
+TODO
+
+- Export typings also (need to enable declaration in tsconfig and expose `*.d.ts` files and then test externally/separately)
+
 **2021**
 
 [README](./_2021/README_2021.md)
