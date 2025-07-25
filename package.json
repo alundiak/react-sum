@@ -1,82 +1,49 @@
 {
   "name": "@lundiak/react-sum",
-  "version": "1.3.0",
-  "private": true,
+  "version": "1.4.0",
   "description": "Experimental ReactJS component to show sum of 2 numbers.",
-  "browser": "dist/app.js",
-  "module": "src/App.jsx",
-  "main": "dist/app.js",
-  "esm": "src/App.jsx",
-  "jsnext:main": "src/App.jsx",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint ./src",
+    "test": "vitest",
+    "preview": "vite preview",
+    "ladle": "ladle serve",
+    "ladle:build": "ladle build",
+    "ladle:preview": "ladle preview"
+  },
+  "dependencies": {
+    "ascii-math": "^2.0.0",
+    "asciimath-parser": "^0.6.5",
+    "katex": "^0.16.22",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@amiceli/vitest-cucumber": "^5.1.2",
+    "@eslint/js": "^9.30.1",
+    "@ladle/react": "^5.0.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.3.0",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
+  },
   "files": [
     "dist",
     "src"
   ],
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "predeploy": "yarn build && yarn build-storybook && cp -r storybook-static ./build/storybook",
-    "deploy": "gh-pages -d build"
-  },
-  "bundledDependencies": false,
-  "dependencies": {
-    "ascii-math": "^2.0.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-docs": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-info": "^6.0.0-alpha.2",
-    "@storybook/addon-knobs": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/addon-notes": "^6.0.0-alpha.6",
-    "@storybook/addons": "^6.2.9",
-    "@storybook/builder-webpack4": "^6.2.9",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
-    "@storybook/theming": "^6.2.9",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^13.1.9",
-    "babel-loader": "8.1.0",
-    "gh-pages": "^3.1.0",
-    "jest-cucumber": "^3.0.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "jest": {
-    "testMatch": [
-      "**/*.test.js",
-      "**/*.test.jsx",
-      "**/*.steps.js",
-      "**/*.steps.jsx"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alundiak/react-sum.git"

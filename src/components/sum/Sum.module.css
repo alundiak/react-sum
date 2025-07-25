@@ -1,0 +1,18 @@
+/* Gives: .ReactSum_sum__3UcGT */
+.sum {
+  border: 1px green dashed;
+  margin: 3px;
+  padding: 3px;
+}
+
+/* Gives: .ReactSum_sum__3UcGT img */
+.sum img {
+  width: 50px;
+}
+
+/* Gives: .ReactSum_sum__3UcGT .ReactSum_equal__28Cxi */
+.sum .equal {
+  width: 58px;
+  height: 32px;
+  background: url("../../assets/images/equal.png") center;
+}
