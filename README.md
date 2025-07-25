@@ -34,34 +34,40 @@ Experiment related to Component creation process and usage of tools, such as: np
 - `yarn add @lundiak/react-sum`
 - `npm install --save @lundiak/react-sum`
 
-Import the component where you want to use it, and you ready to use it in `render()`.
+### Usage
 
-Approach 1 `import ReactSum from '@lundiak/react-sum'` for `<ReactSum.Sum />` usage.
+Import the component where you want to use it, and you ready to use it.
 
-Approach 2 `import { Sum } from '@lundiak/react-sum';` for `<Sum />` usage.
+- `import ReactSum from '@lundiak/react-sum'` for `<ReactSum.Sum />` usage.
+
+or
+
+- `import { Sum } from '@lundiak/react-sum';` for `<Sum />` usage.
 
 ### Props
 
 | _Prop_ | _Description_ | _Default value_ |
 | ------ | :-----------: | :-------------: |
-| a      |       a       |        2        |
-| b      |       b       |        2        |
+| a      |       a       |   `undefined`   |
+| b      |       b       |   `undefined`   |
 
-### Usage example
+### Optional props
+
+| _Prop_    |             _Description_             | _Default value_ |
+| --------- | :-----------------------------------: | :-------------: |
+| useImages |       renders Sum sign as Image       |     `false`     |
+| useASCII  | renders Sum sign as ASCII Math symbol |     `false`     |
+
+### Example
 
 How to add to your file `MyApp.jsx`:
 
 ```jsx
-import React, { Component } from "react";
 import { Sum } from "@lundiak/react-sum";
 
-class MyApp extends Component {
-  render() {
-    return <Sum a={2} b={3} />;
-  }
-}
-
-export default MyApp;
+export const MyApp = () => {
+  return <Sum a={2} b={3} />;
+};
 ```
 
 ## Development
@@ -84,4 +90,4 @@ export default MyApp;
 
 **2021**
 
-[README](./2021/README_2021.md)
+[README](./_2021/README_2021.md)
