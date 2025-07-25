@@ -13,7 +13,9 @@
     "preview": "vite preview",
     "ladle": "ladle serve",
     "ladle:build": "ladle build",
-    "ladle:preview": "ladle preview"
+    "ladle:preview": "ladle preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "ascii-math": "^2.0.0",
