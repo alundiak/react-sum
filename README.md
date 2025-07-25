@@ -6,6 +6,8 @@ Experimental ReactJS component to show sum of 2 numbers.
 
 Experiment related to Component creation process and usage of tools, such as: npm/yarn, ESLINT, Webpack, Babel, Create React App, CSS Modules (migrated from LESS) React Scripts, Storybook, Jest, Enzyme, Cucumber and CI tool Circle CI.
 
+[![pages-build-deployment](https://github.com/alundiak/react-sum/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/alundiak/react-sum/actions/workflows/pages/pages-build-deployment)
+
 <!-- https://circleci.com/docs/2.0/status-badges/ -->
 <!--
   https://shields.io/category/build
