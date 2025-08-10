@@ -1,6 +1,6 @@
 {
   "name": "@lundiak/react-sum",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Experimental ReactJS component to show sum of 2 numbers.",
   "private": false,
   "type": "module",
