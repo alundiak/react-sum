@@ -16,12 +16,17 @@ Experiment related to Component creation process and usage of tools, such as: np
 <!-- [![CircleCI](https://circleci.com/gh/alundiak/react-sum.svg?style=svg)](https://circleci.com/gh/alundiak/react-sum/) -->
 <!-- From https://badge.fury.io/for/js/ -->
 
-[![npm version](https://badge.fury.io/js/%40lundiak%2Freact-sum.svg)](https://badge.fury.io/js/%40lundiak%2Freact-sum)
-[![TravisCI](https://travis-ci.org/alundiak/react-sum.svg?branch=master)](https://travis-ci.org/alundiak/react-sum)
-[![CircleCI](https://img.shields.io/circleci/build/gh/alundiak/react-sum/master?style=social&token=610705375b4f81983b225e2655524a7154988d6e)](https://app.circleci.com/pipelines/github/alundiak/react-sum?branch=master)
-[![SemaphoreCI 2.0 Build Status](https://alundiak.semaphoreci.com/badges/react-sum/branches/master.svg?key=ef261846-bd66-4474-be5c-e2daebc35350)](https://alundiak.semaphoreci.com/projects/react-sum)
+[![npm version](https://badge.fury.io/js/@lundiak%2Freact-sum.svg)](https://badge.fury.io/js/@lundiak%2Freact-sum)
+
+<!-- [![TravisCI](https://travis-ci.org/alundiak/react-sum.svg?branch=master)](https://travis-ci.org/alundiak/react-sum) -->
+
+<!-- [![CircleCI](https://img.shields.io/circleci/build/gh/alundiak/react-sum/master?style=social&token=610705375b4f81983b225e2655524a7154988d6e)](https://app.circleci.com/pipelines/github/alundiak/react-sum?branch=master) -->
+
+<!-- [![SemaphoreCI 2.0 Build Status](https://alundiak.semaphoreci.com/badges/react-sum/branches/master.svg?key=ef261846-bd66-4474-be5c-e2daebc35350)](https://alundiak.semaphoreci.com/projects/react-sum) -->
+
 [![AppVeyorCI](https://ci.appveyor.com/api/projects/status/selytkekkws81f3v?svg=true)](https://ci.appveyor.com/project/alundiak/react-sum)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_shield)
+
+<!-- [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_shield) -->
 
 <!--
 ![CircleCI svg](https://circleci.com/gh/alundiak/react-sum/tree/master/?style=svg)](https://app.circleci.com/pipelines/github/alundiak/react-sum?branch=master)
@@ -122,7 +127,3 @@ export const MySumExample = (props: MyData) => {
 **2021**
 
 [README](./_2021/README_2021.md)
-
-```
-
-```

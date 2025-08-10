@@ -1,0 +1,10 @@
+version: 1.0.{build}
+branches:
+  only:
+  - main
+skip_tags: true
+image: macOS
+build_script:
+- sh: npm run build
+test_script:
+- sh: npm test
