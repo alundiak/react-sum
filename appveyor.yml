@@ -1,12 +1,26 @@
 # https://www.appveyor.com/docs/lang/nodejs-iojs/
 
 version: 1.0.{build}
+
 branches:
   only:
   - main
+
 skip_tags: true
-image: macOS
+
+image: Ubuntu
+
+environment:
+  matrix:
+    - nodejs_version: "18"
+    - nodejs_version: "20"
+    - nodejs_version: "22"
+
+install:
+- sh: npm ci
+
 build_script:
 - sh: npm run build
+
 test_script:
 - sh: npm test
