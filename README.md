@@ -24,10 +24,6 @@ Experiment related to Component creation process and usage of tools, such as: np
 
 <!-- [![SemaphoreCI 2.0 Build Status](https://alundiak.semaphoreci.com/badges/react-sum/branches/master.svg?key=ef261846-bd66-4474-be5c-e2daebc35350)](https://alundiak.semaphoreci.com/projects/react-sum) -->
 
-<!-- [![AppVeyorCI](https://ci.appveyor.com/api/projects/status/selytkekkws81f3v?svg=true)](https://ci.appveyor.com/project/alundiak/react-sum) -->
-
-[![AppVeyorCI](https://ci.appveyor.com/api/projects/status/selytkekkws81f3v/branch/main?svg=true)](https://ci.appveyor.com/project/alundiak/react-sum/branch/main)
-
 <!-- [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falundiak%2Freact-sum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falundiak%2Freact-sum?ref=badge_shield) -->
 
 <!--
