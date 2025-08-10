@@ -1,8 +1,6 @@
 # React Sum
 
-**NOTE:** component is under re-development, so new upcoming versions might be breaking-change-like.
-
-Experimental ReactJS component to show sum of 2 numbers.
+Experimental ReactJS component to show sum of 2 numbers. There is no reasonable purpose to use this component by anyone but me :)
 
 Experiment related to Component creation process and usage of tools, such as: npm/yarn, ESLINT, Webpack, Babel, Create React App, CSS Modules (migrated from LESS) React Scripts, Storybook, Jest, Enzyme, Cucumber and CI tool Circle CI.
 
