@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/react-sum",
+  // base: "/react-sum", // this is relevant to GitHub Pages deployments
   plugins: [react()],
   // assetsInclude: [
   //   "**/KaTeX_Main-Regular.woff2",
