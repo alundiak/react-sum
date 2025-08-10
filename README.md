@@ -72,6 +72,32 @@ export const MyApp = () => {
 };
 ```
 
+### Using types
+
+If component `Sum` is imported, then such line will cause TypeScript warnings about required params `a` and `b`.
+
+```jsx
+const Test = () => <Sum />;
+```
+
+To look up what is actual typings, this code will be OK:
+
+```jsx
+import { Sum } from "@lundiak/react-sum";
+import type { SumProps } from "@lundiak/react-sum/types/components/sum/common";
+
+interface MyData {
+  data: SumProps;
+}
+export const MySumExample = (props: MyData) => {
+  return (
+    <div>
+      <Sum a={props.data.a} b={props.data.b} />
+    </div>
+  );
+};
+```
+
 ## Development
 
 **2025**
@@ -91,11 +117,12 @@ export const MyApp = () => {
   - but KaTeX brings lot of fonts into `dist` after `npm run build`
 - Maybe https://www.mathjax.org/#gettingstarted - https://github.com/mathjax/MathJax - (High-quality display of LaTeX, MathML, and AsciiMath notation in HTML pages)
   - but looks CommonJS-oriented and last updated in 2022. Not ESM-ready (only `es5`).
-
-TODO
-
-- Export typings also (need to enable declaration in tsconfig and expose `*.d.ts` files and then test externally/separately)
+- Exported typings (enabled declaration in `tsconfig` to expose `*.d.ts` files for external codebase imports)
 
 **2021**
 
 [README](./_2021/README_2021.md)
+
+```
+
+```

@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import React from "react";
 // import { DangMath } from "../ascii-math-2021/DangMath"; // when using DangMath import, then Sum.default doesn't exists. Removing "optimization" and adding "externals" helps.
 import sigmaImg from "../../assets/images/sigma.png"; // using imported image is OK. Sum.default exists.
 
@@ -6,7 +6,7 @@ import style from "./Sum.module.css";
 import { DangMath } from "../ascii-math-2021/DangMath";
 import type { SumProps } from "./common";
 
-export const Sum: FC<SumProps> = (props) => {
+export const Sum = (props: SumProps) => {
   const getPieceToRender = () => {
     const { a, b, useImages, useASCII } = props;
     const result = a + b;
