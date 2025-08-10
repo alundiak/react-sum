@@ -77,7 +77,7 @@ export const MyApp = () => {
 **2025**
 
 - Decided to use only `npm`
-- Upgraded to latest `react` v19.x
+- Upgraded to latest `React` v19.x
 - Migrated from CRA + `react-scripts` to [Vite](https://vitejs.dev/)
   - Also migrated to [Vitest](https://vitest.dev/) maybe partially with `@testing-library/react`. Used hints from [here](https://github.com/vitest-dev/vitest/tree/main/examples/react).
   - Also migrated `jest-cucumber` to `@amiceli/vitest-cucumber` to work with `vitest`
@@ -87,10 +87,10 @@ export const MyApp = () => {
 - Replaced old [Storybook](https://github.com/storybookjs/storybook) approach by new [Ladle](https://ladle.dev/) :)
 - As of July-2025 [ascii-math](https://github.com/ForbesLindesay/ascii-math) remains built as pure JavaScript referring deep inside to MathML. And for TypeScript project there is no typings.
   - So I created `ascii-math.d.ts` => `declare module "ascii-math";` to suppress TypeScript error.
-  - Also maybe will replace by [asciimath-parser](https://github.com/widcardw/asciimath-parser) with [KaTeX](https://katex.org/) aka [katex](https://github.com/KaTeX)
-    - but KaTeX brings lot of fonts into `dist` after `npm run build`
-  - Maybe https://www.mathjax.org/#gettingstarted - https://github.com/mathjax/MathJax - (High-quality display of LaTeX, MathML, and AsciiMath notation in HTML pages)
-    - but looks CommonJS-oriented and last updated in 2022. Not ESM-ready (only `es5`).
+- Added usage of alternative [asciimath-parser](https://github.com/widcardw/asciimath-parser) with [KaTeX](https://katex.org/) aka [katex](https://github.com/KaTeX)
+  - but KaTeX brings lot of fonts into `dist` after `npm run build`
+- Maybe https://www.mathjax.org/#gettingstarted - https://github.com/mathjax/MathJax - (High-quality display of LaTeX, MathML, and AsciiMath notation in HTML pages)
+  - but looks CommonJS-oriented and last updated in 2022. Not ESM-ready (only `es5`).
 
 TODO
 
