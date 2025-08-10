@@ -89,6 +89,8 @@ export const MyApp = () => {
   - So I created `ascii-math.d.ts` => `declare module "ascii-math";` to suppress TypeScript error.
   - Also maybe will replace by [asciimath-parser](https://github.com/widcardw/asciimath-parser) with [KaTeX](https://katex.org/) aka [katex](https://github.com/KaTeX)
     - but KaTeX brings lot of fonts into `dist` after `npm run build`
+  - Maybe https://www.mathjax.org/#gettingstarted - https://github.com/mathjax/MathJax - (High-quality display of LaTeX, MathML, and AsciiMath notation in HTML pages)
+    - but looks CommonJS-oriented and last updated in 2022. Not ESM-ready (only `es5`).
 
 TODO
 
