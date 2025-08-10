@@ -2,12 +2,20 @@
   "name": "@lundiak/react-sum",
   "version": "1.4.1",
   "description": "Experimental ReactJS component to show sum of 2 numbers.",
-  "private": true,
+  "private": false,
   "type": "module",
+  "main": "dist/App.js",
+  "types": "types/App.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:types": "tsc --project tsconfig.dist.json",
+    "build:js": "vite build",
+    "build": "npm run build:types && npm run build:js",
     "lint": "eslint ./src",
     "test": "vitest",
     "preview": "vite preview",
@@ -28,6 +36,7 @@
     "@amiceli/vitest-cucumber": "^5.1.2",
     "@eslint/js": "^9.33.0",
     "@ladle/react": "^5.0.3",
+    "@types/node": "^24.2.1",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react-swc": "^4.0.0",
@@ -42,9 +51,6 @@
     "vite": "^7.1.1",
     "vitest": "^3.2.4"
   },
-  "files": [
-    "build"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alundiak/react-sum.git"
