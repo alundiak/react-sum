@@ -1,7 +1,15 @@
 language: node_js
 
 node_js:
-  - "23.0.0" # latest in Aug-2025
+  - "23"
+  - "24" # latest in Aug-2025
+
+cache:
+  npm: false
+
+install:
+  - npm ci
+
 script:
   - "npm run build"
   - "npm test"
